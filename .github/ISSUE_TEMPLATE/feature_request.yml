@@ -1,0 +1,21 @@
+name: Feature Request
+description: Idea for something Klaussy should do
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Start from the workflow, not the feature. "I need to X" is more useful than "you should add a button for X".
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your proposed solution (optional)
+      description: How you'd like Klaussy to handle it. Skip if you're not sure — the problem itself is the important part.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've tried
+      description: Existing Klaussy features, other tools, manual workflows.

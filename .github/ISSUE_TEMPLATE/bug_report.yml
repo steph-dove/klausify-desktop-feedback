@@ -1,0 +1,56 @@
+name: Bug Report
+description: Something broke or misbehaved
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Klaussy version
+      description: About → Version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "14.4 (23E214)"
+    validations:
+      required: true
+  - type: dropdown
+    id: arch
+    attributes:
+      label: CPU
+      options:
+        - Apple Silicon (M-series)
+        - Intel
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a worktree
+        2. Click …
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste the tail of ~/Library/Logs/Klaussy/main.log, or any errors from the DevTools console if relevant.
+      render: shell

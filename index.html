@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klaussy — Multi-terminal Claude Code worktree manager</title>
+  <meta name="description" content="A macOS app that orchestrates multiple Claude Code sessions across git worktrees, reviews PRs with AI, and offers local inline autocomplete.">
+  <meta property="og:title" content="Klaussy">
+  <meta property="og:description" content="Multi-terminal Claude Code worktree manager + PR reviewer for macOS.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">⊞</span>
+      <span class="brand-name">Klaussy</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/steph-dove/klausify-desktop-feedback/issues" target="_blank" rel="noopener">Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Private beta</p>
+      <p class="wordmark">KLAUSSY</p>
+      <h1>Run Claude Code across every worktree.<br>In one window.</h1>
+      <p class="tagline">For the 20&times; developer.</p>
+      <p class="lede">
+        Klaussy is a macOS app that orchestrates multiple Claude Code sessions across git worktrees, reviews pull requests with AI, and offers tab-autocomplete from a local model — nothing per-keystroke ever leaves your machine.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://github.com/steph-dove/klausify-desktop/releases/latest" id="download-btn">
+          Download for macOS
+          <span class="btn-sub">Universal · Apple Silicon + Intel</span>
+        </a>
+        <a class="btn btn-secondary" href="https://discord.gg/9bpSdwCx">
+          Join the Discord
+        </a>
+      </div>
+      <p class="hero-note">Requires macOS 12 (Monterey) or later. <a href="#requirements">See full requirements</a>.</p>
+    </div>
+
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>What it does</h2>
+      <div class="feature-grid">
+
+        <div class="feature">
+          <div class="feature-icon">▤</div>
+          <h3>Parallel worktrees, one view</h3>
+          <p>Spawn a worktree per task, each with its own Claude Code instance. Columns, grid, or single-pane view. Switch with a click; no more juggling <code>cd</code>s.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⤸</div>
+          <h3>Inline AI — locally</h3>
+          <p>Tab-autocomplete as you type, powered by <code>qwen2.5-coder</code> running on your machine via Ollama. ~100ms latency. No code leaves your laptop.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⌘K</div>
+          <h3>Cmd+K inline edits</h3>
+          <p>Select code, describe the change. Claude streams the replacement live in a diff preview. Accept or reject in-place.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">▾</div>
+          <h3>Plan · Debug · Review</h3>
+          <p>A dropdown on every worktree that spawns a dedicated Claude tab running <code>/ultraplan</code>, <code>/debug</code>, or a multi-phase PR review — each on the same worktree, no context loss.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⑂</div>
+          <h3>Full PR review surface</h3>
+          <p>Pull in a PR, read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR. CI failures get an AI debug pass too.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✎</div>
+          <h3>Built-in editor</h3>
+          <p>Monaco editor with LSP diagnostics. Open any file, edit, commit straight from the diff panel. AI-generated commit messages optional.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Example / tour -->
+  <section class="example">
+    <div class="container">
+      <h2>See it in action</h2>
+      <p class="example-sub">Left: a Review action running on one worktree. Middle: another worktree idling. Right: a live GitHub PR with inline comment threads and a review composer.</p>
+      <div class="example-shot-wrap">
+        <img class="example-shot" src="screenshot-hero.png"
+             alt="Klaussy with parallel Claude Code terminals, a Review action in flight on the left, and a GitHub PR review surface on the right showing inline comment threads."
+             onerror="this.parentElement.style.display='none';" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section id="requirements" class="requirements">
+    <div class="container">
+      <h2>What you need</h2>
+      <ul class="req-list">
+        <li><strong>macOS 12</strong> (Monterey) or later. Apple Silicon or Intel.</li>
+        <li><strong><a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code CLI</a></strong> installed and authenticated. Klaussy orchestrates <code>claude</code> — it doesn't replace it.</li>
+        <li><strong><a href="https://cli.github.com" target="_blank" rel="noopener">GitHub CLI (gh)</a></strong> authenticated. Required for PR review features.</li>
+        <li><strong>Homebrew</strong> (optional). Only needed if you opt into local inline autocomplete — Klaussy installs Ollama via <code>brew</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Does my code get sent to third parties?</summary>
+        <p>When you use Claude features, prompts + repo context go to Anthropic via the <code>claude</code> CLI you already trust. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs entirely locally via Ollama and <code>qwen2.5-coder:1.5b</code> — nothing per-keystroke leaves your machine. We don't run a server of our own.</p>
+      </details>
+
+      <details>
+        <summary>Do I need a Claude subscription?</summary>
+        <p>You need whatever plan your <code>claude</code> CLI is configured for. Klaussy doesn't bill separately for AI usage.</p>
+      </details>
+
+      <details>
+        <summary>Why the 2 GB download prompt for inline autocomplete?</summary>
+        <p>~500 MB is Ollama's runtime; ~1 GB is the <code>qwen2.5-coder:1.5b</code> model weights. You only see this prompt if you opt in — otherwise a free word-based completer handles Tab.</p>
+      </details>
+
+      <details>
+        <summary>What happens to my data if I uninstall?</summary>
+        <p>Remove <code>~/Library/Application Support/Klaussy</code> and <code>~/Library/Logs/Klaussy</code> for a clean slate. Ollama and its models persist independently; remove via <code>brew uninstall ollama</code> and <code>rm -rf ~/.ollama</code>.</p>
+      </details>
+
+      <details>
+        <summary>Is this open source?</summary>
+        <p>The application itself is commercial, closed-source. Feedback and bug reports live in a public repo (this one). The bundled open-source components are listed in About → Licenses.</p>
+      </details>
+
+      <details>
+        <summary>How do I report a bug or request a feature?</summary>
+        <p>Open an issue in <a href="https://github.com/steph-dove/klausify-desktop-feedback/issues" target="_blank" rel="noopener">this repo</a>, or drop it in the <a href="https://discord.gg/9bpSdwCx">Discord</a>. Both get read.</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Get the beta.</h2>
+      <p>macOS 12+. Signed and notarized.</p>
+      <a class="btn btn-primary" href="https://github.com/steph-dove/klausify-desktop/releases/latest">
+        Download Klaussy
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">⊞</span>
+      <span>Klaussy</span>
+    </div>
+    <nav class="footer-links">
+      <a href="https://github.com/steph-dove/klausify-desktop-feedback/issues" target="_blank" rel="noopener">Feedback</a>
+      <a href="https://discord.gg/9bpSdwCx">Discord</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="eula.html">EULA</a>
+    </nav>
+    <p class="footer-copy">© 2026 Stephanie Dover. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
