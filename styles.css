@@ -198,7 +198,7 @@ code {
 
 .spine-callout {
   max-width: 720px;
-  margin: 0 auto 20px;
+  margin: 0 auto 36px;
   padding: 16px 20px;
   text-align: left;
   border-left: 3px solid var(--accent);
@@ -212,27 +212,6 @@ code {
 .spine-callout strong {
   color: var(--text);
   font-weight: 600;
-}
-
-.stealth-note {
-  max-width: 720px;
-  margin: 0 auto 36px;
-  padding: 14px 18px;
-  text-align: left;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.stealth-tag {
-  display: inline-block;
-  margin-right: 8px;
-  color: var(--accent-hover);
-  font-weight: 600;
-  white-space: nowrap;
 }
 
 .hero-cta {
