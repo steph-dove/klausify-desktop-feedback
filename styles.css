@@ -196,6 +196,45 @@ code {
   line-height: 1.6;
 }
 
+.spine-callout {
+  max-width: 720px;
+  margin: 0 auto 20px;
+  padding: 16px 20px;
+  text-align: left;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  border-radius: 0 10px 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.spine-callout strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.stealth-note {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  padding: 14px 18px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.stealth-tag {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--accent-hover);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .hero-cta {
   display: flex;
   justify-content: center;
@@ -523,6 +562,7 @@ code {
 .pricing h2,
 .faq h2,
 .diagrams h2,
+.agents h2,
 .final-cta h2 {
   font-size: clamp(26px, 3.5vw, 34px);
   font-weight: 700;
@@ -580,6 +620,111 @@ code {
 
 .feature code {
   font-size: 12px;
+}
+
+/* ---- Supported agents ---- */
+.agents {
+  padding: 96px 0;
+  border-top: 1px solid var(--border);
+}
+
+.agents h2 {
+  margin-bottom: 16px;
+}
+
+.agents-sub {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 40px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.agent-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.agent-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.agent-chip:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.agent-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+
+.agent-vendor {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.sandbox-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.sandbox-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 22px;
+}
+
+.sandbox-body h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+
+.sandbox-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.sandbox-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .sandbox-card {
+    flex-direction: column;
+    gap: 14px;
+  }
 }
 
 /* ---- How sessions work (diagrams) ---- */
@@ -1081,17 +1226,32 @@ code {
   .brand-name {
     display: none;
   }
+  /* Seven nav links won't fit a phone: scroll them instead of overflowing. */
   .nav-links {
     gap: 14px;
     font-size: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links a {
+    flex: 0 0 auto;
   }
   .hero {
     padding: 64px 0 48px;
+  }
+  /* Let the headline wrap to the phone, not to the desktop line break. */
+  .hero h1 br {
+    display: none;
   }
   .features,
   .requirements,
   .faq,
   .diagrams,
+  .agents,
   .final-cta {
     padding: 72px 0;
   }
