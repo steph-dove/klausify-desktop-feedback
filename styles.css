@@ -198,7 +198,7 @@ code {
 
 .spine-callout {
   max-width: 720px;
-  margin: 0 auto 20px;
+  margin: 0 auto 36px;
   padding: 16px 20px;
   text-align: left;
   border-left: 3px solid var(--accent);
@@ -212,27 +212,6 @@ code {
 .spine-callout strong {
   color: var(--text);
   font-weight: 600;
-}
-
-.stealth-note {
-  max-width: 720px;
-  margin: 0 auto 36px;
-  padding: 14px 18px;
-  text-align: left;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.stealth-tag {
-  display: inline-block;
-  margin-right: 8px;
-  color: var(--accent-hover);
-  font-weight: 600;
-  white-space: nowrap;
 }
 
 .hero-cta {
@@ -650,6 +629,8 @@ code {
 }
 
 .agent-chip {
+  display: block;
+  height: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -657,9 +638,18 @@ code {
   transition: border-color 0.15s, transform 0.15s;
 }
 
-.agent-chip:hover {
-  border-color: var(--border-strong);
+a.agent-chip:hover {
+  border-color: var(--accent);
   transform: translateY(-2px);
+}
+
+a.agent-chip:hover .agent-name {
+  color: var(--accent-hover);
+}
+
+/* The shell option isn't something you install, so it gets no link. */
+.agent-chip-static {
+  opacity: 0.75;
 }
 
 .agent-name {
@@ -668,6 +658,7 @@ code {
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.005em;
+  transition: color 0.15s;
 }
 
 .agent-vendor {
