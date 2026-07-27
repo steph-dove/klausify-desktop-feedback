@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klaussy — Multi-agent AI coding sessions in one window</title>
-  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run multi-repo coding sessions with any mix of AI agents (Claude, Gemini, Copilot, Codex, Cursor, Cline) side-by-side. Review pull requests with AI, and get local autocomplete that never leaves your machine.">
-  <meta property="og:title" content="Klaussy">
-  <meta property="og:description" content="Run multi-repo coding sessions with any mix of AI agents (Claude, Gemini, Copilot, Codex, Cursor, Cline) side-by-side. macOS, Windows, Linux.">
+  <title>Klaussy Desktop — The agent-first IDE that reviews its own code before you commit</title>
+  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run multi-agent, multi-repo AI coding sessions in one tabbed workspace — Claude Code, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, opencode, and Ollama — each in its own git worktree, or sandboxed in Docker. Commit-time review gate, AI PR review, and 100% local autocomplete.">
+  <meta property="og:title" content="Klaussy Desktop">
+  <meta property="og:description" content="The agent-first IDE that reviews its own code before you commit. Multi-agent, multi-repo AI coding sessions — Claude Code, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, opencode — each in its own worktree or Docker sandbox. macOS, Windows, Linux.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
@@ -21,6 +21,7 @@
       <span class="brand-name">Klaussy</span>
     </a>
     <nav class="nav-links">
+      <a href="#agents">Agents</a>
       <a href="#features">Features</a>
       <a href="#requirements">Requirements</a>
       <a href="#enterprise">Enterprise</a>
@@ -36,12 +37,22 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="creator-badge">Created by an ex-GitHub, Microsoft &amp; Twitch engineer</div>
+      <div class="creator-badge">Designed by an ex-GitHub, ex-Twitch &amp; ex-Microsoft engineer</div>
       <p class="wordmark">KLAUSSY</p>
-      <h1>Run multiple repos. Mix any agents.<br>In one window.</h1>
-      <p class="tagline">The multi-agent workspace for professional engineers.</p>
+      <h1>The agent-first IDE that reviews<br>its own code before you commit.</h1>
+      <p class="tagline">Multi-agent, multi-repo coding sessions in one workspace.</p>
       <p class="lede">
-        A desktop app for macOS, Windows, and Linux. Run multi-repo coding sessions with any mix of AI agents (Claude, Gemini, Copilot, Codex, Cursor, Cline) side-by-side. Review pull requests with AI, and get blazing-fast local autocomplete that never leaves your machine.
+        Klaussy Desktop runs multi-agent, multi-repository AI coding sessions in a unified, tabbed workspace. It spawns isolated Git worktrees per task — so you can run multiple agents in parallel without juggling branches, staging mess, or local workspace clutter.
+      </p>
+
+      <p class="spine-callout">
+        <strong>The desktop is the face. The <a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a> engine is the spine.</strong>
+        While other orchestrators give you a worktree grid, Klaussy brings the conventions, custom skills, and active git-level guardrails that actually keep agents aligned with your codebase.
+      </p>
+
+      <p class="stealth-note">
+        <span class="stealth-tag">📣 Out of stealth</span>
+        Klaussy has been in heads-down development for six months — quietly battle-tested by a private group of developers shipping real production work through it every day. After months of dogfooding, refinement, and distributing builds to testers, it&rsquo;s finally open to everyone.
       </p>
 
       <div class="logo-strip">
@@ -138,6 +149,42 @@
     </div>
   </section>
 
+  <!-- Supported agents -->
+  <section id="agents" class="agents">
+    <div class="container">
+      <h2>Bring your own agent. All of them, if you like.</h2>
+      <p class="agents-sub">Klaussy orchestrates the agent you choose — it doesn&rsquo;t replace it. Pick a global default, switch it per tab, or run several side by side in the same session, each on its own worktree.</p>
+
+      <ul class="agent-grid">
+        <li class="agent-chip"><span class="agent-name">Claude Code</span><span class="agent-vendor">Anthropic</span></li>
+        <li class="agent-chip"><span class="agent-name">Codex</span><span class="agent-vendor">OpenAI</span></li>
+        <li class="agent-chip"><span class="agent-name">Gemini</span><span class="agent-vendor">Google</span></li>
+        <li class="agent-chip"><span class="agent-name">Antigravity</span><span class="agent-vendor">Google</span></li>
+        <li class="agent-chip"><span class="agent-name">Copilot</span><span class="agent-vendor">GitHub</span></li>
+        <li class="agent-chip"><span class="agent-name">Cursor</span><span class="agent-vendor">Anysphere</span></li>
+        <li class="agent-chip"><span class="agent-name">Cline</span><span class="agent-vendor">VS Code extension</span></li>
+        <li class="agent-chip"><span class="agent-name">opencode</span><span class="agent-vendor">open source</span></li>
+        <li class="agent-chip"><span class="agent-name">Ollama</span><span class="agent-vendor">via Aider &middot; local models</span></li>
+        <li class="agent-chip"><span class="agent-name">Plain shell</span><span class="agent-vendor">no agent, just a terminal</span></li>
+      </ul>
+
+      <div class="sandbox-card">
+        <div class="sandbox-icon">▣</div>
+        <div class="sandbox-body">
+          <h3>Or run any agent in a sandbox</h3>
+          <p>
+            Pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab and it runs inside an isolated
+            <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a>
+            Docker container instead of directly on your machine — keeping the agent&rsquo;s blast radius off your host.
+            Add a gateway under <strong>Preferences → Nemesis8 Sandboxes</strong> (one click sets one up locally), and point it at a
+            local or remote gateway. Add more than one and each shows up in the agent picker as <strong>Nemesis8: &lt;name&gt;</strong>,
+            so you can run a sandboxed Claude and a sandboxed Codex side by side.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- How sessions work -->
   <section id="how-sessions-work" class="diagrams">
     <div class="container">
@@ -157,7 +204,7 @@
 
         <figure class="diagram">
           <img src="diagram-agents-per-session.svg" alt="One session fanning out to three agents: Claude Code, Codex, and Gemini." loading="lazy" />
-          <figcaption><strong>One session, many agents.</strong> Mix any number of agents in a session — Claude Code, Codex, Gemini, Copilot, Cursor, Cline — even different ones on the same repo.</figcaption>
+          <figcaption><strong>One session, many agents.</strong> Mix any number of agents in a session — Claude Code, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, opencode — even different ones on the same repo, sandboxed or not.</figcaption>
         </figure>
 
       </div>
@@ -171,14 +218,26 @@
       <div class="feature-grid">
 
         <div class="feature">
+          <div class="feature-icon">⇉</div>
+          <h3>Parallel agents, isolated worktrees</h3>
+          <p>One task = one git worktree + one independent agent. Run Claude Code, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, and opencode side by side. The sidebar tracks staged/unstaged counts, status, and branch alignment per task.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">▣</div>
+          <h3>Sandboxed agents</h3>
+          <p>Optionally run an agent inside an isolated <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> Docker sandbox instead of directly on your machine. Add a gateway under Preferences → Nemesis8 Sandboxes, then pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab. Keeps the agent's blast radius off your host, local gateway or remote.</p>
+        </div>
+
+        <div class="feature">
           <div class="feature-icon">⇄</div>
           <h3>Any agent, your choice</h3>
-          <p>Run each session on Claude Code, OpenAI Codex, Google Gemini, GitHub Copilot, Cursor, or Cline. Pick a default, switch per terminal, or run the same session in two agents side by side.</p>
+          <p>Run each session on Claude Code, OpenAI Codex, Google Gemini, Google Antigravity, GitHub Copilot, Cursor, Cline, opencode, or a local model through Ollama. Pick a default, switch per terminal, or run the same session in two agents side by side.</p>
         </div>
 
         <div class="feature">
           <div class="feature-icon">▤</div>
-          <h3>Sessions, your way</h3>
+          <h3>Multi-repo sessions, your way</h3>
           <p>A session is whatever you need — one repo or many. Pick the repos it touches (even straight from your recent GitHub repos, cloned on demand); each gets the same branch and its own worktree, with any number of agents you choose, even different ones side by side. Run several sessions at once — including more than one on the same repo — and resume any of them later with one click.</p>
         </div>
 
@@ -196,8 +255,26 @@
 
         <div class="feature">
           <div class="feature-icon">⑂</div>
-          <h3>Full PR review surface</h3>
-          <p>Pull in any PR, read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR.</p>
+          <h3>PR reviews without local checkout</h3>
+          <p>Paste a GitHub pull request URL to view files, commit history, checks, and AI review tabs. Read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR — and materialize any review into a local worktree with one click.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">↻</div>
+          <h3>Cross-agent session resuming</h3>
+          <p>Start a session with Claude Code, pause it, and resume it under Gemini, Cursor, Cline, or opencode. Klaussy automatically compiles a structured handoff brief to catch the new agent up.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⇶</div>
+          <h3>Broadcast to all agents</h3>
+          <p>Type one prompt and send it to every agent in a session at once — kick off the same task across each worktree without retyping.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⧉</div>
+          <h3>Multi-agent MCP manager</h3>
+          <p>Connect Model Context Protocol servers (GitHub, Slack, Linear, Notion, Datadog, and more) across Claude, Codex, Cursor, Gemini, and the rest — from one catalog, with a single add fanning out to every agent you pick.</p>
         </div>
 
         <div class="feature">
@@ -213,9 +290,15 @@
         </div>
 
         <div class="feature">
-          <div class="feature-icon">⚓</div>
-          <h3>Agentic Git Hooks</h3>
-          <p>Klaussy embeds autonomous agents directly into your local Git workflow. Built-in pre-commit and pre-push hooks run local agent checks over your staged diffs, auto-detecting correctness landmines, silent failures, leaked secrets, and debug leftovers. By automating the verification of your code, planning, and commits, Klaussy acts as a local guardrail ensuring your branch stays clean and stable.</p>
+          <div class="feature-icon">⊘</div>
+          <h3>Commit-time review gate</h3>
+          <p>A built-in pre-commit and pre-push hook runs an agent-powered audit over your staged diffs, looking for silent failures, leaked credentials, debug leftovers, correctness bugs, and overly verbose comments. Auto-tidies code before committing, so your branch stays clean and stable before anything is pushed.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⌘</div>
+          <h3>Workflow-oriented tools</h3>
+          <p>Fuzzy command palette (<code>Cmd+K</code>), pop-out task windows, and built-in flows for planning, debugging, and humanizing prose.</p>
         </div>
 
         <div class="feature">
@@ -267,7 +350,7 @@
              onerror="this.parentElement.style.display='none';" />
       </div>
 
-      <p class="example-sub">Any agent, plus a real editor. Run Claude, Codex, Gemini, Copilot, Cursor, or Cline in the terminal with a built-in <strong>Monaco editor</strong> and LSP diagnostics right beside it — edit, then commit from the diff panel.</p>
+      <p class="example-sub">Any agent, plus a real editor. Run Claude, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, or opencode in the terminal with a built-in <strong>Monaco editor</strong> and LSP diagnostics right beside it — edit, then commit from the diff panel.</p>
       <div class="example-shot-wrap">
         <img class="example-shot" src="klaussy_agent_editor.png"
              alt="Klaussy with a Gemini CLI session on the left and the built-in code editor open on api.ts — with a minimap and inline diagnostics — on the right."
@@ -282,9 +365,11 @@
       <h2>What you need</h2>
       <ul class="req-list">
         <li><strong>macOS 12</strong> (Monterey) or later — Apple Silicon or Intel — <strong>Windows 10/11</strong>, or <strong>Ubuntu 22.04+</strong> (other modern Linux distros generally work).</li>
-        <li><strong>At least one agent CLI or IDE extension</strong> installed and authenticated — <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a>, <a href="https://github.com/openai/codex" target="_blank" rel="noopener">OpenAI Codex</a>, <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Google Gemini</a>, <a href="https://github.com/github/copilot-cli" target="_blank" rel="noopener">GitHub Copilot</a>, <a href="https://cursor.com" target="_blank" rel="noopener">Cursor</a>, or <a href="https://github.com/cline/cline" target="_blank" rel="noopener">Cline</a>. Klaussy orchestrates the agent you choose — it doesn't replace it.</li>
+        <li><strong><a href="https://nodejs.org" target="_blank" rel="noopener">Node.js 18+</a></strong> — the agent CLIs are npm packages.</li>
+        <li><strong>At least one agent CLI or IDE extension</strong> installed and authenticated — <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a> (the default), <a href="https://github.com/openai/codex" target="_blank" rel="noopener">OpenAI Codex</a>, <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Google Gemini</a>, <a href="https://antigravity.google" target="_blank" rel="noopener">Google Antigravity</a>, <a href="https://github.com/github/copilot-cli" target="_blank" rel="noopener">GitHub Copilot</a>, <a href="https://cursor.com" target="_blank" rel="noopener">Cursor</a>, <a href="https://github.com/cline/cline" target="_blank" rel="noopener">Cline</a>, or <a href="https://opencode.ai" target="_blank" rel="noopener">opencode</a>. Klaussy orchestrates the agent you choose — it doesn't replace it, and its first-run check tells you what's missing.</li>
         <li><strong><a href="https://cli.github.com" target="_blank" rel="noopener">GitHub CLI (gh)</a></strong> authenticated. Required for PR review features.</li>
-        <li><strong>Ollama</strong> (optional). Only needed if you opt into local inline autocomplete. On macOS, Klaussy can install it via Homebrew; on Windows/Linux, install from <a href="https://ollama.com/download" target="_blank" rel="noopener">ollama.com</a>.</li>
+        <li><strong>Docker + a <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> gateway</strong> (optional). Only needed if you want to run agents in an isolated sandbox rather than directly on your machine. Klaussy can set a local gateway up for you in one click.</li>
+        <li><strong>Ollama</strong> (optional). Needed if you opt into local inline autocomplete, or want to drive an agent tab with a local model via Aider. On macOS, Klaussy can install it via Homebrew; on Windows/Linux, install from <a href="https://ollama.com/download" target="_blank" rel="noopener">ollama.com</a>.</li>
       </ul>
     </div>
   </section>
@@ -332,12 +417,27 @@
 
       <details>
         <summary>Does my code get sent to third parties?</summary>
-        <p>When you use an agent, prompts + repo context go to that agent's provider via the CLI you already trust — Anthropic (Claude), OpenAI (Codex), Google (Gemini), GitHub (Copilot), Cursor, or Cline. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs entirely locally via Ollama and <code>qwen2.5-coder:1.5b</code> — nothing per-keystroke leaves your machine. We don't run a server of our own.</p>
+        <p>When you use an agent, prompts + repo context go to that agent's provider via the CLI you already trust — Anthropic (Claude), OpenAI (Codex), Google (Gemini, Antigravity), GitHub (Copilot), Cursor, Cline, or opencode. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs entirely locally via Ollama and <code>qwen2.5-coder:1.5b</code> — nothing per-keystroke leaves your machine. We don't run a server of our own.</p>
+      </details>
+
+      <details>
+        <summary>Which agents can I run?</summary>
+        <p>Claude Code, OpenAI Codex, Google Gemini, Google Antigravity, GitHub Copilot, Cursor, Cline, and opencode — plus a local model through Ollama (via Aider), and a plain shell when you just want a terminal. Any of them can also be launched inside a Nemesis8 Docker sandbox. Set a global default in Preferences, then override it per tab.</p>
+      </details>
+
+      <details>
+        <summary>Can I run an agent in a sandbox?</summary>
+        <p>Yes. Pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab and it runs inside an isolated <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> Docker container instead of directly on your machine, keeping its blast radius off your host. Add a gateway under <strong>Preferences → Nemesis8 Sandboxes</strong> — one click sets one up locally, or point it at a remote gateway. Each gateway you add appears in the agent picker as <strong>Nemesis8: &lt;name&gt;</strong>, so a sandboxed Claude and a sandboxed Codex can run side by side.</p>
       </details>
 
       <details>
         <summary>Do I need a subscription for the agents?</summary>
-        <p>You need whatever plan each agent CLI you use is configured for — Claude, Codex, Gemini, Copilot, Cursor, and Cline all run on your own accounts. Klaussy doesn't bill separately or charge for AI usage.</p>
+        <p>You need whatever plan each agent CLI you use is configured for — Claude, Codex, Gemini, Antigravity, Copilot, Cursor, Cline, and opencode all run on your own accounts. Klaussy doesn't bill separately or charge for AI usage.</p>
+      </details>
+
+      <details>
+        <summary>What is klaussy-agents?</summary>
+        <p><a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a> is the engine underneath the desktop app — the conventions, custom skills, and git-level guardrails that keep agents aligned with your codebase. The desktop is the face; the engine is the spine. It's open source under the MIT license.</p>
       </details>
 
       <details>
@@ -357,7 +457,7 @@
 
       <details>
         <summary>Is this open source?</summary>
-        <p>Klaussy Desktop is source-available under the Sustainable Use License (SUL 1.0). You can view, customize, and build the software from source for personal use or development. For custom enterprise integrations, self-hosting, or custom AI routing, contact our team to partner. The bundled open-source components are listed in About → Licenses.</p>
+        <p>Klaussy Desktop is source-available under the Sustainable Use License (SUL 1.0). You can run, modify, and self-host the software for personal, non-commercial, and internal business use. Reselling it or offering it as a paid hosted service requires a commercial license — contact our team to partner. The underlying engine, <a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a>, is fully open source under the MIT license. Bundled open-source components are listed in About → Licenses.</p>
       </details>
 
       <details>
