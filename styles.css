@@ -190,7 +190,7 @@ code {
 
 .spine-callout {
   max-width: 720px;
-  margin: 0 auto 36px;
+  margin: 40px auto 0;
   padding: 16px 20px;
   text-align: left;
   border-left: 3px solid var(--accent);
