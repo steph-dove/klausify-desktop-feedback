@@ -188,14 +188,6 @@ code {
   margin: -8px 0 24px;
 }
 
-.lede {
-  max-width: 680px;
-  margin: 0 auto 36px;
-  color: var(--text-muted);
-  font-size: clamp(15px, 1.6vw, 17px);
-  line-height: 1.6;
-}
-
 .spine-callout {
   max-width: 720px;
   margin: 0 auto 36px;
