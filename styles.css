@@ -1226,7 +1226,9 @@ a.agent-chip:hover .agent-name {
   .hero {
     padding: 64px 0 48px;
   }
-  /* Let the headline wrap to the phone, not to the desktop line break. */
+  /* Let the headline wrap to the phone, not to the desktop line break.
+     The markup keeps a space before the <br> so the words stay separated
+     once it's hidden; on desktop that space is dropped at the line end. */
   .hero h1 br {
     display: none;
   }
