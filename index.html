@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klaussy Desktop — The agent-first IDE that reviews its own code before you commit</title>
-  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run multi-agent, multi-repo AI coding sessions in one tabbed workspace — Claude Code, Codex, Gemini, Copilot, Cursor, and more — each in its own git worktree, or sandboxed in Docker. Commit-time review gate, AI PR review, and 100% local autocomplete.">
+  <title>Klaussy Desktop: multi-agent coding sessions, AI PR review, and CI debugging</title>
+  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run Claude Code, Codex, Gemini, Copilot, Cursor, and more side by side, each in its own git worktree or Docker sandbox. Agents work from your repo's own conventions, review your pull requests, and debug failing CI. No server, no markup, bring your own subscription.">
   <meta property="og:title" content="Klaussy Desktop">
-  <meta property="og:description" content="The agent-first IDE that reviews its own code before you commit. Multi-agent, multi-repo AI coding sessions — Claude Code, Codex, Gemini, Copilot, Cursor, and more — each in its own worktree or Docker sandbox. macOS, Windows, Linux.">
+  <meta property="og:description" content="From first prompt to merged PR, with agents that know your codebase. Multi-agent, multi-repo sessions with Claude Code, Codex, Gemini, Copilot, Cursor, and more, plus AI PR review and CI debugging. macOS, Windows, Linux.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.klaussy.com/">
+  <meta property="og:site_name" content="Klaussy">
+  <meta property="og:image" content="https://www.klaussy.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Klaussy running one session across two repos, with an Antigravity CLI agent and a GitHub Copilot agent side by side and a file tree and code editor on the right.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Klaussy Desktop">
+  <meta name="twitter:description" content="From first prompt to merged PR, with agents that know your codebase. No server, no markup, use any agent. macOS, Windows, Linux.">
+  <meta name="twitter:image" content="https://www.klaussy.com/og-image.png">
+  <link rel="canonical" href="https://www.klaussy.com/">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="download.js" defer></script>
@@ -21,9 +32,10 @@
       <span class="brand-name">Klaussy</span>
     </a>
     <nav class="nav-links">
+      <a href="#how-it-stays-yours">Why Klaussy</a>
       <a href="#agents">Agents</a>
+      <a href="#mirroring">Mirroring</a>
       <a href="#features">Features</a>
-      <a href="#requirements">Requirements</a>
       <a href="#enterprise">Enterprise</a>
       <a href="#faq">FAQ</a>
       <a href="https://github.com/steph-dove/klaussy-desktop" target="_blank" rel="noopener">★ Star</a>
@@ -37,10 +49,11 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="creator-badge">Designed by an ex-GitHub, ex-Twitch &amp; ex-Microsoft engineer</div>
-      <p class="wordmark">KLAUSSY</p>
-      <h1>The agent-first IDE that reviews <br>its own code before you commit.</h1>
-      <p class="tagline">Multi-agent, multi-repo coding sessions in one workspace.</p>
+      <img class="hero-mark" src="brand-mark.png" width="128" height="128" alt="" />
+      <p class="wordmark">Klaussy</p>
+      <h1 class="tagline">From first prompt to merged PR, with agents that know your codebase.</h1>
+      <div class="creator-badge">Designed by an ex-GitHub, ex-Twitch &amp; ex-Microsoft App Center engineer</div>
+
       <div class="logo-strip">
         <p class="logo-strip-title">Trusted by engineers at</p>
         <div class="logo-grid">
@@ -52,7 +65,7 @@
           <span>O'Reilly Media</span>
         </div>
       </div>
-      
+
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://github.com/steph-dove/klaussy-desktop-feedback/releases/latest" id="download-btn" data-smart-download>
           <span class="btn-label">Download Klaussy</span>
@@ -62,11 +75,8 @@
           <span class="btn-label">★ Star on GitHub</span>
           <span class="btn-sub">Show your support</span>
         </a>
-        <a class="btn btn-secondary" href="https://discord.gg/ZxNhsuMyYu">
-          Join the Discord
-        </a>
       </div>
-      <p class="hero-note">Source-available under SUL 1.0. Free for personal use and development.<br>100% free for individual developers; paid license required only for commercial production/redistribution.</p>
+      <p class="hero-note">Source-available under SUL 1.0. Free for personal use and development.<br>Individual developers pay nothing. You only need a license to ship it commercially or redistribute it.</p>
 
       <details class="download-picker">
         <summary>Need a different platform? <span class="download-picker-hint">All downloads &darr;</span></summary>
@@ -122,20 +132,139 @@
 
       <p class="spine-callout">
         <strong>The desktop is the face. The <a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a> engine is the spine.</strong>
-        While other orchestrators give you a worktree grid, Klaussy brings the conventions, custom skills, and active git-level guardrails that keep agents aligned with your codebase.
+        Other orchestrators stop at a worktree grid. The open-source engine underneath learns your repo's conventions and holds agents to them with custom skills and git-level guardrails.
       </p>
     </div>
 
   </section>
 
-  <!-- Demo Video -->
+  <!-- Hero shot -->
   <section class="demo-video-section">
     <div class="container">
       <div class="video-container">
-        <video class="demo-video" autoplay loop muted playsinline poster="klaussy_multi_agent_workspace.png">
-          <source src="klaussy-demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <picture>
+          <source srcset="klaussy_multi_agent_workspace.webp" type="image/webp">
+          <img class="demo-video" src="klaussy_multi_agent_workspace.png" width="3024" height="1900" decoding="async"
+               alt="Klaussy running one session across two repos: an Antigravity CLI agent on the left, a GitHub Copilot agent in the middle, and a file tree with the built-in editor open on test_pipeline.py on the right." />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / positioning -->
+  <section id="how-it-stays-yours" class="trust">
+    <div class="container">
+      <h2>No server. No markup. Use any agent.</h2>
+      <p class="trust-sub">Klaussy is a desktop app, not a platform you log into. There's no account, no backend, and no business model that depends on your code passing through us.</p>
+
+      <div class="trust-grid">
+
+        <div class="trust-card">
+          <div class="trust-icon">⌂</div>
+          <h3>Serverless by design</h3>
+          <p>Everything runs on your machine. We don't run a backend, so there's no copy of your repos, prompts, or history on someone else's disk.</p>
+          <p class="trust-line">no account · no cloud sync · no backend</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">⇌</div>
+          <h3>Bring your own subscription</h3>
+          <p>Not a token reseller. Your keys, your plan, the provider's own price. Or pay nothing at all and run free and local models through Ollama.</p>
+          <p class="trust-line">your keys · your plan · your rate</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">∅</div>
+          <h3>Your data isn't the product</h3>
+          <p>Nothing collected about how you work, so nothing to sell or train on. The <a href="privacy.html">privacy policy</a> is short, go read it.</p>
+          <p class="trust-line">not harvested · not sold · not trained on</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">✓</div>
+          <h3>Free for individual developers</h3>
+          <p>Not a trial, and not a seat that disappears when someone rewrites the pricing page. A paid license is only for commercial production or redistribution. Want a bespoke edition? <a href="#enterprise">Talk to us</a>.</p>
+          <p class="trust-line">free forever for individuals · source-available</p>
+        </div>
+
+      </div>
+
+      <p class="trust-close">The whole thing is inspectable, runs locally, and keeps working if we disappear.</p>
+
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption>How the three approaches differ. Categories, not specific products, since everyone's pricing moves.</caption>
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col" class="compare-us">Klaussy</th>
+              <th scope="col">Hosted agent platforms</th>
+              <th scope="col">Single-vendor AI IDEs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Runs on your machine</th>
+              <td class="compare-us"><span class="yes">Yes</span></td>
+              <td><span class="no">No, their cloud</span></td>
+              <td><span class="yes">Yes</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Uses your own subscription</th>
+              <td class="compare-us"><span class="yes">Yes</span></td>
+              <td><span class="no">Their credits</span></td>
+              <td><span class="no">Their plan</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Marks up your tokens</th>
+              <td class="compare-us"><span class="yes">Never</span></td>
+              <td><span class="no">Usually</span></td>
+              <td><span class="no">Usually</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Runs on free or local models</th>
+              <td class="compare-us"><span class="yes">Yes, via Ollama</span></td>
+              <td><span class="no">No</span></td>
+              <td><span class="no">Rarely</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Works with no AI subscription at all</th>
+              <td class="compare-us"><span class="yes">Yes</span></td>
+              <td><span class="no">No</span></td>
+              <td><span class="no">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Mixes agents in one session</th>
+              <td class="compare-us"><span class="yes">Any of 11</span></td>
+              <td><span class="no">One at a time</span></td>
+              <td><span class="no">Theirs only</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Many repos in one session</th>
+              <td class="compare-us"><span class="yes">Yes</span></td>
+              <td><span class="no">Rarely</span></td>
+              <td><span class="no">One window each</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Reviews the diff before you commit</th>
+              <td class="compare-us"><span class="yes">Built in</span></td>
+              <td><span class="no">No</span></td>
+              <td><span class="no">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Docker-sandboxed agents</th>
+              <td class="compare-us"><span class="yes">Yes</span></td>
+              <td><span class="yes">Yes, theirs</span></td>
+              <td><span class="no">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Cost for one developer</th>
+              <td class="compare-us"><span class="yes">Free</span></td>
+              <td><span class="no">Per seat + usage</span></td>
+              <td><span class="no">Per seat</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -144,7 +273,7 @@
   <section id="agents" class="agents">
     <div class="container">
       <h2>Bring your own agent. All of them, if you like.</h2>
-      <p class="agents-sub">Klaussy orchestrates the agent you choose — it doesn&rsquo;t replace it. Pick a global default, switch it per tab, or run several side by side in the same session, each on its own worktree. You need at least one installed and authenticated; Klaussy&rsquo;s first-run check tells you what&rsquo;s missing.</p>
+      <p class="agents-sub">Klaussy drives the agent you choose, it doesn&rsquo;t replace it. Pick a global default, switch it per tab, or run several side by side in the same session, each on its own worktree. You need at least one installed and authenticated. Klaussy&rsquo;s first-run check tells you what&rsquo;s missing.</p>
 
       <ul class="agent-grid">
         <li><a class="agent-chip" href="https://claude.ai/code" target="_blank" rel="noopener"><span class="agent-name">Claude Code</span><span class="agent-vendor">Anthropic &middot; the default</span></a></li>
@@ -167,38 +296,62 @@
           <p>
             Pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab and it runs inside an isolated
             <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a>
-            Docker container instead of directly on your machine — keeping the agent&rsquo;s blast radius off your host.
-            Add a gateway under <strong>Preferences → Nemesis8 Sandboxes</strong> (one click sets one up locally), and point it at a
-            local or remote gateway. Add more than one and each shows up in the agent picker as <strong>Nemesis8: &lt;name&gt;</strong>,
-            so you can run a sandboxed Claude and a sandboxed Codex side by side.
+            Docker container instead of directly on your machine, so its blast radius stays off your host.
+            Add a gateway under <strong>Preferences → Nemesis8 Sandboxes</strong>. One click sets one up locally, or point it at a
+            remote one. Add more than one and each shows up in the agent picker as <strong>Nemesis8: &lt;name&gt;</strong>,
+            so a sandboxed Claude and a sandboxed Codex can run side by side.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How sessions work -->
-  <section id="how-sessions-work" class="diagrams">
+  <!-- Agent mirroring -->
+  <section id="mirroring" class="mirroring">
     <div class="container">
-      <h2>Sessions, your shape.</h2>
-      <p class="diagrams-sub">Stack several on one repo, fan one across many repos, or run a mix of agents inside a single session.</p>
-      <div class="diagram-grid">
+      <h2>Leave your desk. The session keeps going.</h2>
+      <p class="mirroring-sub">Turn on notifications for a session and it mirrors into <strong>Discord</strong> or <strong>Slack</strong> as a thread you can talk to from your phone. Steer the agent while you're out on errands, then walk back to Klaussy and pick the same conversation up mid-sentence. Full scrollback, same worktree, nothing replayed.</p>
 
-        <figure class="diagram">
-          <img src="diagram-sessions-per-repo.svg" alt="Three sessions — A, B, and C — each pointing to the same repo, api." loading="lazy" />
-          <figcaption><strong>Many sessions, one repo.</strong> Run parallel sessions on the same repo — a feature here, a hotfix there.</figcaption>
-        </figure>
+      <div class="mirror-flow">
+        <div class="mirror-step">
+          <div class="mirror-step-num">1</div>
+          <h3>Turn on notifications</h3>
+          <p>Switch on <strong>notifications</strong> for the session and point them at Discord or Slack. Klaussy opens a thread there and streams the agent's output into it as it works.</p>
+        </div>
+        <div class="mirror-arrow" aria-hidden="true">→</div>
+        <div class="mirror-step">
+          <div class="mirror-step-num">2</div>
+          <h3>Drive it from anywhere</h3>
+          <p>Reply in the thread and the agent picks it up on your machine. Answer a prompt, approve a plan, redirect the work, all from your phone in the grocery line.</p>
+        </div>
+        <div class="mirror-arrow" aria-hidden="true">→</div>
+        <div class="mirror-step">
+          <div class="mirror-step-num">3</div>
+          <h3>Come back and continue</h3>
+          <p>Everything said in the thread lands in the Klaussy tab. Sit down and keep typing. One session the whole way through, no handoff brief, nothing lost.</p>
+        </div>
+      </div>
 
-        <figure class="diagram">
-          <img src="diagram-repos-per-session.svg" alt="One session fanning out to three repos: api, web, and infra." loading="lazy" />
-          <figcaption><strong>One session, many repos.</strong> Pull every repo a change touches into one session — same branch everywhere, side by side.</figcaption>
-        </figure>
-
-        <figure class="diagram">
-          <img src="diagram-agents-per-session.svg" alt="One session fanning out to three agents: Claude Code, Codex, and Gemini." loading="lazy" />
-          <figcaption><strong>One session, many agents.</strong> Mix any number of agents in a session — even different ones on the same repo, sandboxed or not.</figcaption>
-        </figure>
-
+      <div class="mirror-demo">
+        <div class="mirror-demo-bar">
+          <span class="mirror-demo-hash">#</span>
+          <span class="mirror-demo-title">klaussy · api · refactor-auth</span>
+          <span class="mirror-demo-tag">mirrored</span>
+        </div>
+        <div class="mirror-demo-body">
+          <div class="mirror-msg mirror-msg-agent">
+            <span class="mirror-who">Claude Code <em>via Klaussy</em></span>
+            <p>Ran the migration against a scratch DB. 41 tests pass, 2 fail on the legacy token path. Want me to keep the old format readable for one release, or hard-cut it?</p>
+          </div>
+          <div class="mirror-msg mirror-msg-you">
+            <span class="mirror-who">you <em>on your phone</em></span>
+            <p>keep it readable for one release, put the cutover behind a flag</p>
+          </div>
+          <div class="mirror-msg mirror-msg-agent">
+            <span class="mirror-who">Claude Code <em>via Klaussy</em></span>
+            <p>Done. <code>AUTH_LEGACY_TOKENS</code> defaults on, cutover path tested. Branch is clean and ready for you to review back in Klaussy.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -207,160 +360,153 @@
   <section id="features" class="features">
     <div class="container">
       <h2>What it does</h2>
-      <div class="feature-grid">
-
-        <div class="feature">
-          <div class="feature-icon">⇉</div>
-          <h3>Parallel agents, isolated worktrees</h3>
-          <p>One task = one git worktree + one independent agent. Run any mix of the supported agents side by side. The sidebar tracks staged/unstaged counts, status, and branch alignment per task.</p>
+      <div class="feature-group">
+        <div class="feature-group-head">
+          <span class="feature-group-num">01</span>
+          <h3>Run a fleet, not one chat window</h3>
+          <p>One task per worktree, as many agents as you want, all going at the same time.</p>
         </div>
+        <div class="diagram-grid feature-diagrams">
 
-        <div class="feature">
-          <div class="feature-icon">▣</div>
-          <h3>Sandboxed agents</h3>
-          <p>Optionally run an agent inside an isolated <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> Docker sandbox instead of directly on your machine. Add a gateway under Preferences → Nemesis8 Sandboxes, then pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab. Keeps the agent's blast radius off your host, local gateway or remote.</p>
+          <figure class="diagram">
+            <img src="diagram-sessions-per-repo.svg" alt="Three sessions, A, B, and C, each pointing to the same repo, api." loading="lazy" />
+            <figcaption><strong>Many sessions, one repo.</strong> Run parallel sessions on the same repo. A feature here, a hotfix there.</figcaption>
+          </figure>
+
+          <figure class="diagram">
+            <img src="diagram-repos-per-session.svg" alt="One session fanning out to three repos: api, web, and infra." loading="lazy" />
+            <figcaption><strong>One session, many repos.</strong> Pull every repo a change touches into one session, same branch everywhere, side by side.</figcaption>
+          </figure>
+
+          <figure class="diagram">
+            <img src="diagram-agents-per-session.svg" alt="One session fanning out to three agents: Claude Code, Codex, and Gemini." loading="lazy" />
+            <figcaption><strong>One session, many agents.</strong> Mix any number of agents in a session, even different ones on the same repo, sandboxed or not.</figcaption>
+          </figure>
+
         </div>
-
-        <div class="feature">
-          <div class="feature-icon">▤</div>
-          <h3>Multi-repo sessions, your way</h3>
-          <p>A session is whatever you need — one repo or many. Pick the repos it touches (even straight from your recent GitHub repos, cloned on demand); each gets the same branch and its own worktree, with any number of agents you choose, even different ones side by side. Run several sessions at once — including more than one on the same repo — and resume any of them later with one click.</p>
+        <div class="feature-rows">
+          <div class="feature-row">
+            <div class="feature-icon">⇉</div>
+            <div class="feature-row-body">
+              <h4>Parallel agents, isolated worktrees</h4>
+              <p>One task = one git worktree + one agent. The sidebar tracks status, diff counts, and branch drift per task.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">▤</div>
+            <div class="feature-row-body">
+              <h4>Multi-repo sessions, your way</h4>
+              <p>One repo or many, each on the same branch in its own worktree. Clone straight from your recent GitHub repos, resume any session with one click.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⇶</div>
+            <div class="feature-row-body">
+              <h4>Broadcast to all agents</h4>
+              <p>One prompt, every agent in the session, every worktree. Typed once.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">↻</div>
+            <div class="feature-row-body">
+              <h4>Cross-agent session resuming</h4>
+              <p>Pause on Claude Code, resume under Codex. Klaussy writes the handoff brief that catches the new agent up.</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="feature">
-          <div class="feature-icon">❖</div>
-          <h3>Repo-aware agents</h3>
-          <p>On session start, Klaussy maps your repo — its conventions, rules, and import graph (fan-in/out, cycles, endpoint chains) — and gives your agents that context to draw on. Plan, review, debug, and implement runs ground their work in how your codebase fits together, not generic advice. Refreshes as the repo changes.</p>
+      <div class="feature-group">
+        <div class="feature-group-head">
+          <span class="feature-group-num">02</span>
+          <h3>Keep them aligned with your code</h3>
+          <p>Every run grounded in your conventions, and nothing lands without a review.</p>
         </div>
-
-        <div class="feature">
-          <div class="feature-icon">⚙</div>
-          <h3>Auto-debug CI failures</h3>
-          <p>Klaussy connects to your PR's CI; one click pulls the failing job's logs and your agent returns root cause + suggested fix, applied straight to the worktree.</p>
+        <div class="feature-rows">
+          <div class="feature-row">
+            <div class="feature-icon">❖</div>
+            <div class="feature-row-body">
+              <h4>Repo-aware agents</h4>
+              <p>Klaussy maps your conventions, rules, and import graph at session start. Every run works from that instead of guessing, and it refreshes as you go.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⊘</div>
+            <div class="feature-row-body">
+              <h4>Commit-time review gate</h4>
+              <p>Pre-commit and pre-push hooks run an agent over your staged diffs, hunting silent failures, leaked secrets, debug leftovers, and correctness bugs, then tidy what they can.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">▾</div>
+            <div class="feature-row-body">
+              <h4>Plan · Debug · Review</h4>
+              <p>A dropdown on every worktree spawns a dedicated agent tab: a guided Plan flow, a Debug pass, or a multi-phase PR review.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⑂</div>
+            <div class="feature-row-body">
+              <h4>PR reviews without local checkout</h4>
+              <p>Paste a pull request URL for files, commits, checks, and an AI review. Implement, ignore, or append each finding, or pull the review into a worktree.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⚙</div>
+            <div class="feature-row-body">
+              <h4>Auto-debug CI failures</h4>
+              <p>One click on a red check pulls the job logs. Your agent says what broke and drops a suggested fix in the worktree.</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="feature">
-          <div class="feature-icon">⑂</div>
-          <h3>PR reviews without local checkout</h3>
-          <p>Paste a GitHub pull request URL to view files, commit history, checks, and AI review tabs. Read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR — and materialize any review into a local worktree with one click.</p>
+      <div class="feature-group">
+        <div class="feature-group-head">
+          <span class="feature-group-num">03</span>
+          <h3>On your terms</h3>
+          <p>Sandboxed, local, or driven from your phone. However you want to run it.</p>
         </div>
-
-        <div class="feature">
-          <div class="feature-icon">↻</div>
-          <h3>Cross-agent session resuming</h3>
-          <p>Start a session with Claude Code, pause it, and resume it under a different one. Klaussy automatically compiles a structured handoff brief to catch the new agent up.</p>
+        <div class="feature-rows">
+          <div class="feature-row">
+            <div class="feature-icon">◈</div>
+            <div class="feature-row-body">
+              <h4>Agent mirroring to Discord &amp; Slack</h4>
+              <p>Mirror a session into a Discord or Slack thread and steer it from your phone. <a href="#mirroring">See how it works</a>.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⤸</div>
+            <div class="feature-row-body">
+              <h4>Inline AI, locally</h4>
+              <p>Tab-autocomplete powered by <code>qwen2.5-coder</code> via Ollama. ~100ms latency. No code leaves your laptop.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⧉</div>
+            <div class="feature-row-body">
+              <h4>Multi-agent MCP manager</h4>
+              <p>One catalog of MCP servers: GitHub, Slack, Linear, Notion, Datadog. Add one, it fans out to every agent you pick.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">⌘</div>
+            <div class="feature-row-body">
+              <h4>Workflow-oriented tools</h4>
+              <p>Fuzzy command palette (<code>Cmd+K</code>), pop-out task windows, and built-in flows for planning, debugging, and humanizing prose.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">✎</div>
+            <div class="feature-row-body">
+              <h4>Built-in editor</h4>
+              <p>Monaco editor with LSP diagnostics. Edit and commit straight from the diff panel. AI-generated commit messages optional.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="feature">
-          <div class="feature-icon">⇶</div>
-          <h3>Broadcast to all agents</h3>
-          <p>Type one prompt and send it to every agent in a session at once — kick off the same task across each worktree without retyping.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">⧉</div>
-          <h3>Multi-agent MCP manager</h3>
-          <p>Connect Model Context Protocol servers — GitHub, Slack, Linear, Notion, Datadog, and more — from one catalog, with a single add fanning out to every agent you pick.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">▾</div>
-          <h3>Plan · Debug · Review</h3>
-          <p>Every worktree has a dropdown that spawns a dedicated agent tab running Klaussy's guided Plan flow, a Debug pass, or a multi-phase PR review — same worktree, no context loss.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">⤸</div>
-          <h3>Inline AI — locally</h3>
-          <p>Tab-autocomplete powered by <code>qwen2.5-coder</code> via Ollama. ~100ms latency. No code leaves your laptop.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">⊘</div>
-          <h3>Commit-time review gate</h3>
-          <p>A built-in pre-commit and pre-push hook runs an agent-powered audit over your staged diffs, looking for silent failures, leaked credentials, debug leftovers, correctness bugs, and overly verbose comments. Auto-tidies code before committing, so your branch stays clean and stable before anything is pushed.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">⌘</div>
-          <h3>Workflow-oriented tools</h3>
-          <p>Fuzzy command palette (<code>Cmd+K</code>), pop-out task windows, and built-in flows for planning, debugging, and humanizing prose.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">✎</div>
-          <h3>Built-in editor</h3>
-          <p>Monaco editor with LSP diagnostics. Edit and commit straight from the diff panel. AI-generated commit messages optional.</p>
-        </div>
-
       </div>
     </div>
   </section>
-
-  <!-- Example / tour -->
-  <section class="example">
-    <div class="container">
-      <h2>See it in action</h2>
-      <p class="example-sub">One session, every repo, your pick of agents. Here a single session spans two repos side by side — <strong>OpenAI Codex</strong> on the left, <strong>Claude Code</strong> on the right — while Klaussy builds a conventions-aware <code>CLAUDE.md</code> so both agents work from your codebase's real structure.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_multi_agent_workspace.png"
-             alt="Klaussy running one session across two repos: an OpenAI Codex terminal on the left, a Claude Code terminal in the middle, and a Changes panel on the right showing a freshly generated CLAUDE.md with the repo's architecture, API routes, and tech stack."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-
-      <p class="example-sub">AI PR review: each finding is its own card with severity, file:line location, the offending code, and a written critique. Per-finding actions: <strong>Ignore</strong>, <strong>Add to PR</strong>, <strong>Implement</strong>, or open a chat to <strong>Ask</strong> or <strong>Investigate</strong> — all run on your selected agent.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_pr_ai_review.png"
-             alt="The Review tab listing 24 findings as cards; the top one is a Blocker (Correctness) on src/hooks/useSpeechRecognition.js with a code block, a detailed written explanation, and a row of action buttons: Copy, Investigate, Ask, Ignore, Add to PR, and Implement."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-
-      <p class="example-sub">Debugging a failing CI check: click <strong>Debug</strong> on the red row and your agent pulls the job logs, pinpoints the cause, and proposes a fix. Ask follow-ups in the chat, then click <strong>Fix this</strong> to have the agent apply it in the PR worktree.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_ci_debug.png"
-             alt="Klaussy's Checks tab on a failing 'Lint, format, test, build' run, with a Debug panel showing the agent's analysis and a concrete patch, a follow-up chat composer, and 'Fix this' and 'Open as task' buttons."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-
-      <p class="example-sub">The same check expanded to its annotations: every failure parsed out with its <code>file:line</code>, the test name, the error message, and stack frames — so you can see exactly what broke before sending the agent in to debug it.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_ci_annotations.png"
-             alt="Klaussy's Checks tab showing 10 annotations for a failing 'Lint, format, test, build' run: a Node.js 20 deprecation warning, a 'Process completed with exit code 1' failure, and several test failures in src/hooks/useSpeechRecognition.test.js each with a 'TypeError: () => mockRecognizer is not a constructor' message and expandable stack frames."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-
-      <p class="example-sub">Review the full diff in-app: every changed file with add/remove counts, the unified diff, and inline comment threads you — or your agent — can reply to. The same surface you'd get on GitHub.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_pr_files.png"
-             alt="The Files tab of a pull request: the left rail lists 38 changed files with per-file plus/minus bars; the main pane shows the .github/workflows/ci.yml diff with an inline comment thread."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-
-      <p class="example-sub">Any agent, plus a real editor. Run your agent of choice in the terminal with a built-in <strong>Monaco editor</strong> and LSP diagnostics right beside it — edit, then commit from the diff panel.</p>
-      <div class="example-shot-wrap">
-        <img class="example-shot" src="klaussy_agent_editor.png"
-             alt="Klaussy with a Gemini CLI session on the left and the built-in code editor open on api.ts — with a minimap and inline diagnostics — on the right."
-             onerror="this.parentElement.style.display='none';" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Requirements -->
-  <section id="requirements" class="requirements">
-    <div class="container">
-      <h2>What you need</h2>
-      <ul class="req-list">
-        <li><strong>macOS 12</strong> (Monterey) or later — Apple Silicon or Intel — <strong>Windows 10/11</strong>, or <strong>Ubuntu 22.04+</strong> (other modern Linux distros generally work).</li>
-        <li><strong><a href="https://nodejs.org" target="_blank" rel="noopener">Node.js 18+</a></strong> — the agent CLIs are npm packages.</li>
-        <li><strong>At least one agent CLI or IDE extension</strong> installed and authenticated — see <a href="#agents">the supported agents</a> for install links. Klaussy orchestrates the agent you choose, it doesn't replace it, and its first-run check tells you what's missing.</li>
-        <li><strong><a href="https://cli.github.com" target="_blank" rel="noopener">GitHub CLI (gh)</a></strong> authenticated. Required for PR review features.</li>
-        <li><strong>Docker + a <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> gateway</strong> (optional). Only needed if you want to run agents in an isolated sandbox rather than directly on your machine. Klaussy can set a local gateway up for you in one click.</li>
-        <li><strong>Ollama</strong> (optional). Needed if you opt into local inline autocomplete, or want to drive an agent tab with a local model via Aider. On macOS, Klaussy can install it via Homebrew; on Windows/Linux, install from <a href="https://ollama.com/download" target="_blank" rel="noopener">ollama.com</a>.</li>
-      </ul>
-    </div>
-  </section>
-
-
 
   <!-- Enterprise Section -->
   <section id="enterprise" class="enterprise">
@@ -368,7 +514,7 @@
       <p class="eyebrow">Enterprise &amp; Partnerships</p>
       <h2>Bespoke AI development environments. Built for you.</h2>
       <p class="enterprise-desc">
-        Need a customized multi-agent coding environment? Our developer team and AI architect team partner directly with companies to build tailored enterprise solutions fitted exactly to your specific workflows, security guidelines, and internal APIs.
+        Need a multi-agent coding environment built around how your company already works? Our developers and AI architects work with you directly to fit Klaussy to your workflows, your security rules, and your internal APIs.
       </p>
       <div class="enterprise-benefits">
         <div class="benefit">
@@ -377,20 +523,17 @@
         </div>
         <div class="benefit">
           <h4>Custom AI Orchestration</h4>
-          <p>Work directly with our AI architects to set up customized multi-agent behaviors, custom model bindings, and security rules.</p>
+          <p>Work with our AI architects to set up multi-agent behaviors, model bindings, and security rules for your team.</p>
         </div>
         <div class="benefit">
           <h4>VPC &amp; Secure Deployment</h4>
-          <p>Host completely locally or inside your private cloud with strict data governance, custom LLM routing, and full security compliance.</p>
+          <p>Host it entirely on your own hardware or inside your private cloud, with strict data governance, custom LLM routing, and the compliance story your auditors want.</p>
         </div>
       </div>
       <div class="enterprise-cta-wrap">
         <a class="btn btn-primary" href="https://calendly.com/doverstephaniem/30min" target="_blank" rel="noopener">
           <span class="btn-label">Book a Call</span>
           <span class="btn-sub">Talk to our AI Architects</span>
-        </a>
-        <a class="btn btn-secondary" href="https://discord.gg/ZxNhsuMyYu">
-          Join our Discord
         </a>
       </div>
     </div>
@@ -403,27 +546,17 @@
 
       <details>
         <summary>Does my code get sent to third parties?</summary>
-        <p>When you use an agent, prompts + repo context go to that agent's provider via the CLI you already trust — whichever one you picked. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs entirely locally via Ollama and <code>qwen2.5-coder:1.5b</code> — nothing per-keystroke leaves your machine. We don't run a server of our own.</p>
+        <p>When you use an agent, your prompts and repo context go to whichever provider you picked, through the CLI you already trust. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs on your machine via Ollama and <code>qwen2.5-coder:1.5b</code>, so nothing per-keystroke leaves it. We don't run a server of our own.</p>
       </details>
 
       <details>
-        <summary>Which agents can I run?</summary>
-        <p>See <a href="#agents">the full list above</a>. Any of them can also be launched inside a Nemesis8 Docker sandbox. Set a global default in Preferences, then override it per tab.</p>
-      </details>
-
-      <details>
-        <summary>Can I run an agent in a sandbox?</summary>
-        <p>Yes. Pick <strong>Nemesis8 Sandbox</strong> as the agent for any tab and it runs inside an isolated <a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a> Docker container instead of directly on your machine, keeping its blast radius off your host. Add a gateway under <strong>Preferences → Nemesis8 Sandboxes</strong> — one click sets one up locally, or point it at a remote gateway. Each gateway you add appears in the agent picker as <strong>Nemesis8: &lt;name&gt;</strong>, so a sandboxed Claude and a sandboxed Codex can run side by side.</p>
-      </details>
-
-      <details>
-        <summary>Do I need a subscription for the agents?</summary>
-        <p>You need whatever plan each agent CLI you use is configured for — they all run on your own accounts. Klaussy doesn't bill separately or charge for AI usage.</p>
+        <summary>Do I need a subscription, and does Klaussy mark up AI usage?</summary>
+        <p>You need whatever plan each agent CLI is set up with, on your own accounts. Klaussy never sits between you and your provider, so there's nothing to resell, mark up, or meter. Or run free and local models through Ollama and pay for nothing at all.</p>
       </details>
 
       <details>
         <summary>What is klaussy-agents?</summary>
-        <p><a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a> is the engine underneath the desktop app — the conventions, custom skills, and git-level guardrails that keep agents aligned with your codebase. The desktop is the face; the engine is the spine. It's open source under the MIT license.</p>
+        <p><a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a> is the engine underneath the desktop app: the conventions, custom skills, and git-level guardrails that keep agents aligned with your codebase. The desktop is the face, the engine is the spine. It's open source under the MIT license.</p>
       </details>
 
       <details>
@@ -433,27 +566,22 @@
 
       <details>
         <summary>Why the 2 GB download prompt for inline autocomplete?</summary>
-        <p>~500 MB is Ollama's runtime; ~1 GB is the <code>qwen2.5-coder:1.5b</code> model weights. You only see this prompt if you opt in — otherwise a free word-based completer handles Tab.</p>
+        <p>~500 MB is Ollama's runtime, ~1 GB is the <code>qwen2.5-coder:1.5b</code> model weights. You only see the prompt if you opt in. Otherwise a free word-based completer handles Tab.</p>
       </details>
 
       <details>
         <summary>What happens to my data if I uninstall?</summary>
-        <p>On macOS, remove <code>~/Library/Application Support/Klaussy</code> and <code>~/Library/Logs/Klaussy</code>. On Windows, remove <code>%APPDATA%\Klaussy</code>. On Linux, remove <code>~/.config/Klaussy</code> and <code>~/.local/share/Klaussy</code>. Ollama and its models persist independently — uninstall it through your package manager and remove <code>~/.ollama</code>.</p>
+        <p>On macOS, remove <code>~/Library/Application Support/Klaussy</code> and <code>~/Library/Logs/Klaussy</code>. On Windows, remove <code>%APPDATA%\Klaussy</code>. On Linux, remove <code>~/.config/Klaussy</code> and <code>~/.local/share/Klaussy</code>. Ollama and its models stick around on their own, so uninstall it through your package manager and remove <code>~/.ollama</code>.</p>
       </details>
 
       <details>
-        <summary>Is this open source?</summary>
-        <p>Klaussy Desktop is source-available under the Sustainable Use License (SUL 1.0). You can run, modify, and self-host the software for personal, non-commercial, and internal business use. Reselling it or offering it as a paid hosted service requires a commercial license — contact our team to partner. The underlying engine, <a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a>, is fully open source under the MIT license. Bundled open-source components are listed in About → Licenses.</p>
-      </details>
-
-      <details>
-        <summary>What is the Sustainable Use License (SUL 1.0)?</summary>
-        <p>The Sustainable Use License is a source-available license. It allows individuals and organizations to inspect, modify, and run the code for personal use or development. However, commercial production usage requires a separate agreement, and you cannot use the software to host a competing service.</p>
+        <summary>Is this open source, and what is SUL 1.0?</summary>
+        <p>Klaussy Desktop is source-available under the Sustainable Use License. You can inspect, modify, run, and self-host it for personal use, development, and internal business use. Commercial production use needs a separate agreement, and you can't use it to host a competing service, so <a href="#enterprise">get in touch</a> if you want to partner. The engine underneath, <a href="https://github.com/steph-dove/klaussy-agents" target="_blank" rel="noopener">klaussy-agents</a>, is fully open source under MIT. Bundled components are listed in About → Licenses.</p>
       </details>
 
       <details>
         <summary>How do I report a bug or request a feature?</summary>
-        <p>Open an issue on <a href="https://github.com/steph-dove/klaussy-desktop/issues" target="_blank" rel="noopener">GitHub</a>, or drop it in the <a href="https://discord.gg/ZxNhsuMyYu">Discord</a>. Both get read.</p>
+        <p>Open an issue on <a href="https://github.com/steph-dove/klaussy-desktop/issues" target="_blank" rel="noopener">GitHub</a>. Every one gets read.</p>
       </details>
 
     </div>
@@ -463,14 +591,13 @@
   <section class="final-cta">
     <div class="container">
       <h2>Get Klaussy.</h2>
-      <p>macOS, Windows, Linux. Source-available under SUL 1.0 — free for personal use &amp; development.</p>
+      <p>macOS, Windows, Linux. Source-available under SUL 1.0, free for personal use and development.</p>
       <a class="btn btn-primary" href="https://github.com/steph-dove/klaussy-desktop-feedback/releases/latest" data-smart-download>
         <span class="btn-label">Download Klaussy</span>
         <span class="btn-sub">macOS &middot; Windows &middot; Linux</span>
       </a>
     </div>
   </section>
-
 </main>
 
 <footer class="footer">
@@ -481,42 +608,12 @@
     </div>
     <nav class="footer-links">
       <a href="https://github.com/steph-dove/klaussy-desktop/issues" target="_blank" rel="noopener">Feedback</a>
-      <a href="https://discord.gg/ZxNhsuMyYu">Discord</a>
       <a href="privacy.html">Privacy</a>
       <a href="eula.html">EULA</a>
     </nav>
     <p class="footer-copy">© 2026 Stephanie Dover. All rights reserved.</p>
   </div>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    const img = document.createElement('img');
-    img.className = 'lightbox-img';
-    overlay.appendChild(img);
-    document.body.appendChild(overlay);
-
-    document.querySelectorAll('.example-shot').forEach(shot => {
-      shot.addEventListener('click', () => {
-        img.src = shot.src;
-        img.alt = shot.alt;
-        overlay.classList.add('active');
-      });
-    });
-
-    overlay.addEventListener('click', () => {
-      overlay.classList.remove('active');
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-      }
-    });
-  });
-</script>
 
 </body>
 </html>

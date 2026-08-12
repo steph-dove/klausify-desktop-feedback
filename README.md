@@ -9,11 +9,24 @@ The multi-agent workspace for professional engineers.
 
 A desktop app for **macOS, Windows, and Linux**. Run multi-repo coding sessions with any mix of AI agents (**Claude, Gemini, Copilot, Codex, Cursor, Cline**) side-by-side. Review pull requests with AI, and get blazing-fast, 100% local autocomplete that never leaves your machine.
 
-### [⬇ Download Klaussy](https://www.klaussy.com/#download-btn) · [★ Star on GitHub](https://github.com/steph-dove/klaussy-desktop) · [Join the Discord](https://discord.gg/ZxNhsuMyYu)
+### [⬇ Download Klaussy](https://www.klaussy.com/#download-btn) · [★ Star on GitHub](https://github.com/steph-dove/klaussy-desktop)
 
 The download page auto-detects your OS and architecture and gives you the right file — or pick one yourself from the [latest release](https://github.com/steph-dove/klaussy-desktop-feedback/releases/latest).
 
 Source-available under the Sustainable Use License (SUL 1.0). 100% free for individual developers and personal use; paid license required only for commercial production/redistribution.
+
+---
+
+## No server. No markup. Use any agent.
+
+Klaussy is a desktop app, not a platform you log into. There's no account, no backend, and no business model that depends on your code passing through us.
+
+- **Serverless by design.** Everything runs on your machine. We operate no backend, so there's no copy of your repos, prompts, or history on someone else's disk. Your code goes only to the agent provider you picked, through the CLI you already installed and trust.
+- **Bring your own subscription.** Klaussy is not a token reseller. It drives the agent CLIs you already pay for, on your own keys and plans, at the provider's own price — no resold credits, no marked-up tokens, no per-seat AI surcharge, nothing metered by us. Or pay nothing at all and point it at free and local models through Ollama.
+- **Your data isn't the product.** Klaussy doesn't collect what you open, what you run, or what's in your repos. Nobody here has a pile of your data to sell or train on, because we never took it.
+- **Free for individual developers.** 100% free for personal use and development — not a trial. Source-available under SUL 1.0, so you can read exactly what it does. A paid license is only required for commercial production or redistribution. If your company wants a bespoke edition built around its own tooling and security rules, we're happy to talk. See [Enterprise & Partnerships](#enterprise--partnerships).
+
+The whole thing is inspectable, runs locally, and keeps working if we disappear. That's the point.
 
 ---
 
@@ -25,6 +38,7 @@ Source-available under the Sustainable Use License (SUL 1.0). 100% free for indi
 - **Auto-debug CI failures.** Klaussy connects to your PR's CI checks. When one goes red, pull the logs in with a click and your agent runs a focused debug pass — likely cause, suggested fix, applied straight to the worktree.
 - **Full PR review surface.** Pull in a PR, read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR.
 - **Plan · Debug · Review.** A dropdown on every worktree that spawns a dedicated agent tab running Klaussy's guided **Plan** flow, a **Debug** pass, or a multi-phase PR **Review** — each on the same worktree, no context loss.
+- **Agent mirroring to Discord & Slack.** Turn on notifications for a session and it mirrors into a Discord or Slack thread, streaming the agent's output as it works. Reply from your phone to answer a prompt, approve a plan, or redirect the work while you're out running errands — then come back to Klaussy and continue the same conversation, full scrollback and same worktree intact.
 - **Inline AI — locally.** Tab-autocomplete as you type, powered by `qwen2.5-coder` running on your machine via Ollama. ~100ms latency. No code leaves your laptop.
 - **Agentic Git Hooks.** Klaussy embeds autonomous agents directly into your local Git workflow. Built-in pre-commit and pre-push hooks automatically run local agent checks over staged diffs, catching correctness landmines, silent failures, leaked secrets, and debug leftovers. By taking care of commit, code, and planning guardrails, Klaussy ensures your branch stays clean, safe, and stable before anything is pushed.
 - **Built-in editor.** Monaco editor with LSP diagnostics. Open any file, edit, commit straight from the diff panel. AI-generated commit messages optional.
@@ -137,7 +151,7 @@ Need a customized multi-agent coding environment? Our developer team and AI arch
 - **Custom AI Orchestration:** Work directly with our AI architects to set up customized multi-agent behaviors, custom model bindings, and security rules.
 - **VPC & Secure Deployment:** Host completely locally or inside your private cloud with strict data governance, custom LLM routing, and full security compliance.
 
-You can book a call directly with our AI Architects via [Calendly](https://calendly.com/doverstephaniem/30min) or join our [Discord](https://discord.gg/ZxNhsuMyYu).
+You can book a call directly with our AI Architects via [Calendly](https://calendly.com/doverstephaniem/30min).
 
 ## FAQ
 
@@ -165,7 +179,7 @@ The Sustainable Use License is a source-available license. It allows individuals
 
 ## Report a bug / request a feature
 
-Open an issue in the [Issues tab](https://github.com/steph-dove/klaussy-desktop/issues) or drop it in the [Discord](https://discord.gg/ZxNhsuMyYu). Both get read.
+Open an issue in the [Issues tab](https://github.com/steph-dove/klaussy-desktop/issues). Every one gets read.
 
 Please include:
 - OS and version (macOS / Windows / Linux distro)
