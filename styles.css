@@ -11,9 +11,14 @@
   --text: #e9ebf2;
   --text-muted: #9ba3b8;
   --text-dim: #6b7388;
-  --accent: #8b5cf6;
-  --accent-hover: #a78bfa;
-  --accent-dim: rgba(139, 92, 246, 0.18);
+  --accent: #22c55e;
+  --accent-hover: #4ade80;
+  --accent-dim: rgba(34, 197, 94, 0.18);
+  --accent-contrast: #062012;
+  --accent-2: #3b82f6;
+  --accent-2-dim: rgba(59, 130, 246, 0.18);
+  --accent-3: #ef4444;
+  --accent-3-dim: rgba(239, 68, 68, 0.18);
   --code-bg: #0b0d14;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -151,8 +156,8 @@ code {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 22px;
@@ -172,7 +177,7 @@ code {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0 0 18px;
-  background: linear-gradient(135deg, var(--accent) 0%, #d3bdfc 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -275,8 +280,8 @@ code {
   border: 1px solid var(--border);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(139, 92, 246, 0.08),
-    0 0 64px 8px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(34, 197, 94, 0.08),
+    0 0 64px 8px rgba(34, 197, 94, 0.12);
   background: var(--bg-elevated);
 }
 
@@ -317,15 +322,15 @@ code {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-contrast);
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #fff;
+  color: var(--accent-contrast);
   transform: translateY(-1px);
 }
 
@@ -702,6 +707,18 @@ code {
   font-weight: 600;
 }
 
+/* Arrows sit between the steps, so the three steps are the 1st, 3rd and 5th
+   div in the flow. */
+.mirror-step:nth-of-type(3) .mirror-step-num {
+  background: var(--accent-2-dim);
+  color: var(--accent-2);
+}
+
+.mirror-step:nth-of-type(5) .mirror-step-num {
+  background: var(--accent-3-dim);
+  color: var(--accent-3);
+}
+
 .mirror-step h3 {
   font-size: 16px;
   font-weight: 600;
@@ -949,6 +966,14 @@ code {
   padding-top: 2px;
 }
 
+.feature-group:nth-of-type(2) .feature-group-num {
+  color: var(--accent-2);
+}
+
+.feature-group:nth-of-type(3) .feature-group-num {
+  color: var(--accent-3);
+}
+
 .feature-group-head h3 {
   font-size: 21px;
   font-weight: 700;
@@ -1184,8 +1209,8 @@ a.agent-chip:hover .agent-name {
   border-color: var(--accent);
   box-shadow:
     0 12px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(139, 92, 246, 0.25),
-    0 0 32px 4px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(34, 197, 94, 0.25),
+    0 0 32px 4px rgba(34, 197, 94, 0.12);
 }
 
 .price-card-featured:hover {
@@ -1274,7 +1299,7 @@ a.agent-chip:hover .agent-name {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #3b82f6);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
 }
 
 /* ---- Enterprise Section ---- */
@@ -1283,8 +1308,8 @@ a.agent-chip:hover .agent-name {
   padding: 96px 0;
   border-top: 1px solid var(--border);
   background:
-    radial-gradient(800px circle at 85% 15%, rgba(139, 92, 246, 0.12), transparent 50%),
-    radial-gradient(800px circle at 15% 85%, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(800px circle at 85% 15%, rgba(34, 197, 94, 0.12), transparent 50%),
+    radial-gradient(800px circle at 15% 85%, rgba(239, 68, 68, 0.10), transparent 50%),
     var(--bg);
 }
 
