@@ -3,21 +3,21 @@
   <desc id="d3">A single Klaussy session running several coding agents side by side.</desc>
   <defs>
     <marker id="arrow3" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
-      <path d="M0,0 L6.5,3 L0,6 Z" fill="#8b5cf6"/>
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#3b82f6"/>
     </marker>
   </defs>
 
   <text x="190" y="22" text-anchor="middle" font-family="'SF Mono','Fira Code',Menlo,Consolas,monospace" font-size="12.5" font-weight="500" letter-spacing="0.04em" fill="#9ba3b8">one session &#8594; many agents</text>
 
   <!-- arrows: one session fans out to three agents -->
-  <g fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.9">
+  <g fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.9">
     <path d="M118,128 C 182,128 198,60 256,60" marker-end="url(#arrow3)"/>
     <path d="M118,128 L 256,128" marker-end="url(#arrow3)"/>
     <path d="M118,128 C 182,128 198,196 256,196" marker-end="url(#arrow3)"/>
   </g>
 
   <!-- session node (accent) -->
-  <rect x="14" y="105" width="104" height="46" rx="10" fill="#1d1733" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="14" y="105" width="104" height="46" rx="10" fill="#141f38" stroke="#3b82f6" stroke-width="1.5"/>
   <text x="66" y="128" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#e9ebf2">Session</text>
 
   <!-- agent nodes (neutral) -->
