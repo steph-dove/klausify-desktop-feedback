@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Klaussy Desktop: multi-agent coding sessions, AI PR review, and CI debugging</title>
-  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run Claude Code, Codex, Gemini, Copilot, Cursor, and more side by side, each in its own git worktree or Docker sandbox. Agents work from your repo's own conventions, review your pull requests, and debug failing CI. No server, no markup, bring your own subscription.">
+  <meta name="description" content="A desktop app for macOS, Windows, and Linux. Run Claude Code, Codex, Gemini, Copilot, Cursor, and more side by side, each in its own git worktree or Docker sandbox across GitHub, GitLab, and Bitbucket. Agents work from your repo's own conventions, review your pull and merge requests, and debug failing CI. No server, no markup, bring your own subscription.">
   <meta property="og:title" content="Klaussy Desktop">
-  <meta property="og:description" content="From first prompt to merged PR, with agents that know your codebase. Multi-agent, multi-repo sessions with Claude Code, Codex, Gemini, Copilot, Cursor, and more, plus AI PR review and CI debugging. macOS, Windows, Linux.">
+  <meta property="og:description" content="From first prompt to merged PR, with agents that know your codebase. Multi-agent, multi-repo sessions with Claude Code, Codex, Gemini, Copilot, Cursor, and more, plus AI PR/MR review and CI debugging across GitHub, GitLab, and Bitbucket. macOS, Windows, Linux.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.klaussy.com/">
   <meta property="og:site_name" content="Klaussy">
@@ -16,7 +16,7 @@
   <meta property="og:image:alt" content="Klaussy running one session across two repos, with an Antigravity CLI agent and a GitHub Copilot agent side by side and a file tree and code editor on the right.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Klaussy Desktop">
-  <meta name="twitter:description" content="From first prompt to merged PR, with agents that know your codebase. No server, no markup, use any agent. macOS, Windows, Linux.">
+  <meta name="twitter:description" content="From first prompt to merged PR across GitHub, GitLab, and Bitbucket, with agents that know your codebase. No server, no markup, use any agent. macOS, Windows, Linux.">
   <meta name="twitter:image" content="https://www.klaussy.com/og-image.png">
   <link rel="canonical" href="https://www.klaussy.com/">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -396,7 +396,7 @@
             <div class="feature-icon">▤</div>
             <div class="feature-row-body">
               <h4>Multi-repo sessions, your way</h4>
-              <p>One repo or many, each on the same branch in its own worktree. Clone straight from your recent GitHub repos, resume any session with one click.</p>
+              <p>One repo or many, each on the same branch in its own worktree. Clone straight from your recent GitHub, GitLab, or Bitbucket repos, resume any session with one click.</p>
             </div>
           </div>
           <div class="feature-row">
@@ -447,15 +447,15 @@
           <div class="feature-row">
             <div class="feature-icon">⑂</div>
             <div class="feature-row-body">
-              <h4>PR reviews without local checkout</h4>
-              <p>Paste a pull request URL for files, commits, checks, and an AI review. Implement, ignore, or append each finding, or pull the review into a worktree.</p>
+              <h4>PR &amp; MR reviews without local checkout</h4>
+              <p>Paste a GitHub Pull Request, GitLab Merge Request, or Bitbucket PR URL for files, commits, checks, and an AI review. Implement, ignore, or append each finding, or pull the review into a worktree.</p>
             </div>
           </div>
           <div class="feature-row">
             <div class="feature-icon">⚙</div>
             <div class="feature-row-body">
               <h4>Auto-debug CI failures</h4>
-              <p>One click on a red check pulls the job logs. Your agent says what broke and drops a suggested fix in the worktree.</p>
+              <p>One click on a red check from GitHub Actions, GitLab CI/CD, or Bitbucket Pipelines pulls the job logs. Your agent says what broke and drops a suggested fix in the worktree.</p>
             </div>
           </div>
         </div>
@@ -486,7 +486,7 @@
             <div class="feature-icon">⧉</div>
             <div class="feature-row-body">
               <h4>Multi-agent MCP manager</h4>
-              <p>One catalog of MCP servers: GitHub, Slack, Linear, Notion, Datadog. Add one, it fans out to every agent you pick.</p>
+              <p>One catalog of MCP servers: GitHub, GitLab, Slack, Linear, Notion, Datadog. Add one, it fans out to every agent you pick.</p>
             </div>
           </div>
           <div class="feature-row">
@@ -546,7 +546,7 @@
 
       <details>
         <summary>Does my code get sent to third parties?</summary>
-        <p>When you use an agent, your prompts and repo context go to whichever provider you picked, through the CLI you already trust. GitHub operations go through your local <code>gh</code>. Inline autocomplete runs on your machine via Ollama and <code>qwen2.5-coder:1.5b</code>, so nothing per-keystroke leaves it. We don't run a server of our own.</p>
+        <p>When you use an agent, your prompts and repo context go to whichever provider you picked, through the CLI you already trust. GitHub, GitLab, and Bitbucket operations go through your local CLIs (<code>gh</code>, <code>glab</code>) and direct forge authentication. Inline autocomplete runs on your machine via Ollama and <code>qwen2.5-coder:1.5b</code>, so nothing per-keystroke leaves it. We don't run a server of our own.</p>
       </details>
 
       <details>

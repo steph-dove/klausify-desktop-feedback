@@ -7,7 +7,7 @@ The multi-agent workspace for professional engineers.
 
 *Created by an ex-GitHub, Microsoft & Twitch engineer. Trusted by engineers at Microsoft, Meta, GitHub, Twitch, Rad AI, and O'Reilly Media.*
 
-A desktop app for **macOS, Windows, and Linux**. Run multi-repo coding sessions with any mix of AI agents (**Claude, Gemini, Copilot, Codex, Cursor, Cline**) side-by-side. Review pull requests with AI, and get blazing-fast, 100% local autocomplete that never leaves your machine.
+A desktop app for **macOS, Windows, and Linux**. Run multi-repo coding sessions with any mix of AI agents (**Claude, Gemini, Copilot, Codex, Cursor, Cline**) side-by-side. Review pull and merge requests with AI across **GitHub, GitLab, and Bitbucket**, and get blazing-fast, 100% local autocomplete that never leaves your machine.
 
 ### [⬇ Download Klaussy](https://www.klaussy.com/#download-btn) · [★ Star on GitHub](https://github.com/steph-dove/klaussy-desktop)
 
@@ -33,10 +33,10 @@ The whole thing is inspectable, runs locally, and keeps working if we disappear.
 ## What it does
 
 - **Any agent, your choice.** Run each session on **Claude Code, OpenAI Codex, Google Gemini, GitHub Copilot, Cursor, or Cline** — pick a global default, switch it per terminal, or run the same session in two agents side by side. PR review, implement, CI-debug, and ask all follow your selected agent + model.
-- **Sessions, your way.** A session is whatever you need — one repo or many. Pick the repos it touches (including straight from your recent GitHub repos, cloned on demand); each gets the same branch and its own worktree, with any number of agents you choose, even different ones side by side. Run several sessions at once — including more than one on the same repo — and resume any of them later with one click, every repo back with its agent conversations. Manage or delete sessions (worktrees included) from the sidebar. Columns, grid, or single-pane view; no more juggling `cd`s.
+- **Sessions, your way.** A session is whatever you need — one repo or many. Pick the repos it touches (including straight from your recent GitHub, GitLab, or Bitbucket repos, cloned on demand); each gets the same branch and its own worktree, with any number of agents you choose, even different ones side by side. Run several sessions at once — including more than one on the same repo — and resume any of them later with one click, every repo back with its agent conversations. Manage or delete sessions (worktrees included) from the sidebar. Columns, grid, or single-pane view; no more juggling `cd`s.
 - **Repo-aware agents.** On session start, Klaussy analyzes the repo — extracting its conventions, rules, and import graph (fan-in/out, cycles, endpoint chains) — and gives your agents that context to draw on. PR review, Plan, Debug, and implement runs ground their work in how your codebase fits together instead of generic advice, and the analysis refreshes as the repo changes.
-- **Auto-debug CI failures.** Klaussy connects to your PR's CI checks. When one goes red, pull the logs in with a click and your agent runs a focused debug pass — likely cause, suggested fix, applied straight to the worktree.
-- **Full PR review surface.** Pull in a PR, read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR.
+- **Auto-debug CI failures.** Klaussy connects to your PR/MR CI checks (GitHub Actions, GitLab CI/CD, Bitbucket Pipelines). When one goes red, pull the logs in with a click and your agent runs a focused debug pass — likely cause, suggested fix, applied straight to the worktree.
+- **Full PR & MR review surface.** Pull in a GitHub PR, GitLab MR, or Bitbucket PR, read the diff with inline comments, run an AI review that breaks into per-finding cards — ignore, implement, or append to PR/MR.
 - **Plan · Debug · Review.** A dropdown on every worktree that spawns a dedicated agent tab running Klaussy's guided **Plan** flow, a **Debug** pass, or a multi-phase PR **Review** — each on the same worktree, no context loss.
 - **Agent mirroring to Discord & Slack.** Turn on notifications for a session and it mirrors into a Discord or Slack thread, streaming the agent's output as it works. Reply from your phone to answer a prompt, approve a plan, or redirect the work while you're out running errands — then come back to Klaussy and continue the same conversation, full scrollback and same worktree intact.
 - **Inline AI — locally.** Tab-autocomplete as you type, powered by `qwen2.5-coder` running on your machine via Ollama. ~100ms latency. No code leaves your laptop.
@@ -55,7 +55,7 @@ Stack several on one repo, fan one across many repos, or mix agents inside a sin
 
 Klaussy runs on **macOS 12+** (Apple Silicon or Intel), **Windows 10/11**, or **Ubuntu 22.04+** (other modern Linux distros generally work).
 
-You'll also need **at least one supported agent CLI or IDE extension** — [Claude Code](https://claude.ai/code), [OpenAI Codex](https://github.com/openai/codex), [Google Gemini](https://github.com/google-gemini/gemini-cli), [GitHub Copilot](https://github.com/github/copilot-cli), [Cursor](https://cursor.com), or [Cline](https://github.com/cline/cline) — and the [GitHub CLI (`gh`)](https://cli.github.com), all authenticated. Ollama is optional and only needed for local inline autocomplete.
+You'll also need **at least one supported agent CLI or IDE extension** — [Claude Code](https://claude.ai/code), [OpenAI Codex](https://github.com/openai/codex), [Google Gemini](https://github.com/google-gemini/gemini-cli), [GitHub Copilot](https://github.com/github/copilot-cli), [Cursor](https://cursor.com), or [Cline](https://github.com/cline/cline) — and authenticated credentials for your Git forge (the [GitHub CLI (`gh`)](https://cli.github.com), [GitLab CLI (`glab`)](https://gitlab.com/gitlab-org/cli), or Bitbucket account credentials). Ollama is optional and only needed for local inline autocomplete.
 
 ## Install
 
@@ -107,7 +107,7 @@ Klaussy auto-updates after install — no need to manually grab future versions.
 
 ## Setup
 
-After installing Klaussy, install **at least one agent CLI** plus the GitHub CLI. Klaussy's first-run check tells you what's missing.
+After installing Klaussy, install **at least one agent CLI** plus your forge tools. Klaussy's first-run check tells you what's missing.
 
 ### Agents — install whichever you use (at least one)
 
@@ -122,16 +122,24 @@ npm install -g @github/copilot             # GitHub Copilot
 
 Run each agent once to sign in (e.g. `claude`, `codex`, `gemini`, `copilot`, `cursor`, `cline`) — they use your own account/subscription.
 
-### GitHub CLI (for PR review, checkout, CI)
+### Git Forges (for PR/MR review, checkout, CI)
 
+**GitHub CLI (`gh`):**
 ```bash
-# macOS
-brew install gh && gh auth login
-# Windows
-winget install --id GitHub.cli && gh auth login
-# Linux (Ubuntu/Debian)
-sudo apt install gh && gh auth login
+# macOS: brew install gh && gh auth login
+# Windows: winget install --id GitHub.cli && gh auth login
+# Linux (Ubuntu/Debian): sudo apt install gh && gh auth login
 ```
+
+**GitLab CLI (`glab`):**
+```bash
+# macOS: brew install glab && glab auth login
+# Windows: winget install --id GitLab.glab && glab auth login
+# Linux (Ubuntu/Debian): sudo apt install glab && glab auth login
+```
+
+**Bitbucket:**
+Connect an App Password or token under **Preferences → Git Accounts** in Klaussy Desktop.
 
 ### Ollama (optional — only for local inline autocomplete)
 
@@ -156,7 +164,7 @@ You can book a call directly with our AI Architects via [Calendly](https://calen
 ## FAQ
 
 **Does my code get sent to third parties?**
-When you use an agent, prompts + repo context go to that agent's provider via the CLI you already trust — Anthropic (Claude), OpenAI (Codex), Google (Gemini), GitHub (Copilot), Cursor, or Cline. GitHub operations go through your local `gh`. Inline autocomplete runs entirely locally via Ollama and `qwen2.5-coder:1.5b` — nothing per-keystroke leaves your machine. There is no Klaussy server.
+When you use an agent, prompts + repo context go to that agent's provider via the CLI you already trust — Anthropic (Claude), OpenAI (Codex), Google (Gemini), GitHub (Copilot), Cursor, or Cline. GitHub, GitLab, and Bitbucket operations go through your local `gh` / `glab` CLI or direct forge credentials. Inline autocomplete runs entirely locally via Ollama and `qwen2.5-coder:1.5b` — nothing per-keystroke leaves your machine. There is no Klaussy server.
 
 **Do I need a subscription for the agents?**
 You need whatever plan each agent CLI you use is configured for — Claude, Codex, Gemini, Copilot, Cursor, and Cline all run on your own accounts. Klaussy doesn't bill separately or charge for AI usage.
