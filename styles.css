@@ -11,9 +11,13 @@
   --text: #e9ebf2;
   --text-muted: #9ba3b8;
   --text-dim: #6b7388;
-  --accent: #8b5cf6;
-  --accent-hover: #a78bfa;
-  --accent-dim: rgba(139, 92, 246, 0.18);
+  /* Warm ramp anchored on the brand mark's red-orange. */
+  --accent: #e05a33;
+  --accent-hover: #f59e42;
+  --accent-warm: #fbbf24;
+  --accent-dim: rgba(224, 90, 51, 0.18);
+  /* Sits on top of an --accent fill; white only reaches 3.7:1 there. */
+  --accent-ink: #17110d;
   --code-bg: #0b0d14;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -135,7 +139,9 @@ code {
 
 .eyebrow {
   display: inline-block;
-  color: var(--accent);
+  /* --accent only clears 4.2:1 against --accent-dim; the lighter orange
+     clears 7:1, the same trade .creator-badge already makes. */
+  color: var(--accent-hover);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -151,8 +157,8 @@ code {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(224, 90, 51, 0.12);
+  border: 1px solid rgba(224, 90, 51, 0.25);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 22px;
@@ -172,7 +178,7 @@ code {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0 0 18px;
-  background: linear-gradient(135deg, var(--accent) 0%, #d3bdfc 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-warm) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -275,8 +281,8 @@ code {
   border: 1px solid var(--border);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(139, 92, 246, 0.08),
-    0 0 64px 8px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(224, 90, 51, 0.08),
+    0 0 64px 8px rgba(224, 90, 51, 0.12);
   background: var(--bg-elevated);
 }
 
@@ -317,15 +323,15 @@ code {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 24px rgba(224, 90, 51, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #fff;
+  color: var(--accent-ink);
   transform: translateY(-1px);
 }
 
@@ -1184,8 +1190,8 @@ a.agent-chip:hover .agent-name {
   border-color: var(--accent);
   box-shadow:
     0 12px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(139, 92, 246, 0.25),
-    0 0 32px 4px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(224, 90, 51, 0.25),
+    0 0 32px 4px rgba(224, 90, 51, 0.12);
 }
 
 .price-card-featured:hover {
@@ -1274,7 +1280,7 @@ a.agent-chip:hover .agent-name {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #3b82f6);
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
 }
 
 /* ---- Enterprise Section ---- */
@@ -1283,8 +1289,8 @@ a.agent-chip:hover .agent-name {
   padding: 96px 0;
   border-top: 1px solid var(--border);
   background:
-    radial-gradient(800px circle at 85% 15%, rgba(139, 92, 246, 0.12), transparent 50%),
-    radial-gradient(800px circle at 15% 85%, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(800px circle at 85% 15%, rgba(224, 90, 51, 0.12), transparent 50%),
+    radial-gradient(800px circle at 15% 85%, rgba(251, 191, 36, 0.08), transparent 50%),
     var(--bg);
 }
 
