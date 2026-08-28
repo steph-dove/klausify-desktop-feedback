@@ -3,14 +3,14 @@
   <desc id="d1">Three separate Klaussy sessions all working on the same repository.</desc>
   <defs>
     <marker id="arrow1" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
-      <path d="M0,0 L6.5,3 L0,6 Z" fill="#8b5cf6"/>
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#5b9bff"/>
     </marker>
   </defs>
 
-  <text x="190" y="22" text-anchor="middle" font-family="'SF Mono','Fira Code',Menlo,Consolas,monospace" font-size="12.5" font-weight="500" letter-spacing="0.04em" fill="#9ba3b8">many sessions &#8594; one repo</text>
+  <text x="190" y="22" text-anchor="middle" font-family="'SF Mono','Fira Code',Menlo,Consolas,monospace" font-size="12.5" font-weight="500" letter-spacing="0.04em" fill="#9c9ca9">many sessions &#8594; one repo</text>
 
   <!-- arrows: three sessions converge on one repo -->
-  <g fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.9">
+  <g fill="none" stroke="#5b9bff" stroke-width="1.5" opacity="0.9">
     <path d="M118,60 C 182,60 198,128 256,128" marker-end="url(#arrow1)"/>
     <path d="M118,128 L 256,128" marker-end="url(#arrow1)"/>
     <path d="M118,196 C 182,196 198,128 256,128" marker-end="url(#arrow1)"/>
@@ -18,18 +18,18 @@
 
   <!-- session nodes (accent) -->
   <g>
-    <rect x="14" y="40" width="104" height="40" rx="10" fill="#1d1733" stroke="#8b5cf6" stroke-width="1.5"/>
-    <text x="66" y="60" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#e9ebf2">Session A</text>
+    <rect x="14" y="40" width="104" height="40" rx="10" fill="#2a1015" stroke="#f2384a" stroke-width="1.5"/>
+    <text x="66" y="60" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#ecedf1">Session A</text>
 
-    <rect x="14" y="108" width="104" height="40" rx="10" fill="#1d1733" stroke="#8b5cf6" stroke-width="1.5"/>
-    <text x="66" y="128" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#e9ebf2">Session B</text>
+    <rect x="14" y="108" width="104" height="40" rx="10" fill="#2a1015" stroke="#f2384a" stroke-width="1.5"/>
+    <text x="66" y="128" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#ecedf1">Session B</text>
 
-    <rect x="14" y="176" width="104" height="40" rx="10" fill="#1d1733" stroke="#8b5cf6" stroke-width="1.5"/>
-    <text x="66" y="196" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#e9ebf2">Session C</text>
+    <rect x="14" y="176" width="104" height="40" rx="10" fill="#2a1015" stroke="#f2384a" stroke-width="1.5"/>
+    <text x="66" y="196" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#ecedf1">Session C</text>
   </g>
 
   <!-- repo node (neutral) -->
-  <rect x="262" y="105" width="104" height="46" rx="10" fill="#1a1e2a" stroke="#39415a" stroke-width="1"/>
-  <text x="314" y="124" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#e9ebf2">api</text>
-  <text x="314" y="139" text-anchor="middle" dominant-baseline="central" font-family="'SF Mono','Fira Code',Menlo,Consolas,monospace" font-size="9" fill="#6b7388">one repo</text>
+  <rect x="262" y="105" width="104" height="46" rx="10" fill="#17171c" stroke="#3b3b46" stroke-width="1"/>
+  <text x="314" y="124" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="600" fill="#ecedf1">api</text>
+  <text x="314" y="139" text-anchor="middle" dominant-baseline="central" font-family="'SF Mono','Fira Code',Menlo,Consolas,monospace" font-size="9" fill="#70707d">one repo</text>
 </svg>
