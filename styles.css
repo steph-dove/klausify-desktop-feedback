@@ -2,19 +2,20 @@
    System font stack, no external dependencies, no framework. */
 
 :root {
-  --bg: #0f1117;
-  --bg-elevated: #161923;
-  --surface: #1a1e2a;
-  --surface-hover: #232838;
-  --border: #262c3d;
-  --border-strong: #333c54;
-  --text: #e9ebf2;
-  --text-muted: #9ba3b8;
-  --text-dim: #6b7388;
-  --accent: #8b5cf6;
-  --accent-hover: #a78bfa;
-  --accent-dim: rgba(139, 92, 246, 0.18);
-  --code-bg: #0b0d14;
+  --bg: #131311;
+  --bg-elevated: #1a1a17;
+  --surface: #1f1f1b;
+  --surface-hover: #2a2a24;
+  --border: #2e2e28;
+  --border-strong: #44443b;
+  --text: #f0efe7;
+  --text-muted: #a8a69b;
+  --text-dim: #78766c;
+  --accent: #d4af37;
+  --accent-hover: #f2c94c;
+  --accent-dim: rgba(212, 175, 55, 0.18);
+  --accent-ink: #131311;
+  --code-bg: #0d0d0b;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
@@ -74,7 +75,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(15, 17, 23, 0.82);
+  background: rgba(19, 19, 17, 0.82);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
@@ -151,8 +152,8 @@ code {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 22px;
@@ -172,7 +173,7 @@ code {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0 0 18px;
-  background: linear-gradient(135deg, var(--accent) 0%, #d3bdfc 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #f4e3a1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -275,8 +276,8 @@ code {
   border: 1px solid var(--border);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(139, 92, 246, 0.08),
-    0 0 64px 8px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(212, 175, 55, 0.08),
+    0 0 64px 8px rgba(212, 175, 55, 0.12);
   background: var(--bg-elevated);
 }
 
@@ -317,15 +318,15 @@ code {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #fff;
+  color: var(--accent-ink);
   transform: translateY(-1px);
 }
 
@@ -1184,8 +1185,8 @@ a.agent-chip:hover .agent-name {
   border-color: var(--accent);
   box-shadow:
     0 12px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(139, 92, 246, 0.25),
-    0 0 32px 4px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(212, 175, 55, 0.25),
+    0 0 32px 4px rgba(212, 175, 55, 0.12);
 }
 
 .price-card-featured:hover {
@@ -1274,7 +1275,7 @@ a.agent-chip:hover .agent-name {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #3b82f6);
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
 }
 
 /* ---- Enterprise Section ---- */
@@ -1283,8 +1284,8 @@ a.agent-chip:hover .agent-name {
   padding: 96px 0;
   border-top: 1px solid var(--border);
   background:
-    radial-gradient(800px circle at 85% 15%, rgba(139, 92, 246, 0.12), transparent 50%),
-    radial-gradient(800px circle at 15% 85%, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(800px circle at 85% 15%, rgba(212, 175, 55, 0.12), transparent 50%),
+    radial-gradient(800px circle at 15% 85%, rgba(242, 201, 76, 0.08), transparent 50%),
     var(--bg);
 }
 
