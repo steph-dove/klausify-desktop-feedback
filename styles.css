@@ -1196,6 +1196,53 @@ a.agent-chip:hover .agent-name {
   font-weight: 600;
 }
 
+/* Cross-agent session notes, closing out the agents section. */
+.context-share {
+  max-width: 720px;
+  margin: 56px auto 24px;
+  text-align: center;
+}
+
+.context-share h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.context-share p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.context-share-note {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.context-video {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    0 0 64px 8px rgba(139, 92, 246, 0.12);
+}
+
+.context-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--code-bg);
+}
+
+
 @media (max-width: 640px) {
   .sandbox-card {
     flex-direction: column;
