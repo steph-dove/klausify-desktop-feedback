@@ -824,6 +824,125 @@ code {
   }
 }
 
+/* ---- Full Dev Loop ("Rest of the Owl") ---- */
+
+.devloop {
+  padding: 96px 0;
+  border-top: 1px solid var(--border);
+}
+
+.devloop-head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.devloop-head .eyebrow {
+  margin-bottom: 18px;
+}
+
+.devloop-sub {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.devloop-sub strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.devloop-video {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    0 0 64px 8px rgba(139, 92, 246, 0.12);
+}
+
+.devloop-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--code-bg);
+}
+
+/* The nine phases as one wrapping run of chips. The arrow is generated on
+   the li and the pill lives in an inner span, so arrows sit in the gaps
+   between pills instead of inside their borders. */
+.devloop-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 0;
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+
+.devloop-flow li {
+  display: flex;
+  align-items: center;
+}
+
+.devloop-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.devloop-num {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.devloop-flow li:not(:last-child)::after {
+  content: "\2192";
+  padding: 0 7px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.devloop-flow-stop .devloop-chip {
+  border-style: dashed;
+  border-color: var(--border-strong);
+  background: transparent;
+  color: var(--text-dim);
+}
+
+.devloop-flow-stop .devloop-num {
+  color: var(--text-dim);
+}
+
+/* Chips stack near-vertically on narrow screens, where a trailing arrow
+   would point off the end of each row rather than at the next chip. */
+@media (max-width: 700px) {
+  .devloop-flow li:not(:last-child)::after {
+    display: none;
+  }
+
+  .devloop-flow {
+    gap: 8px 6px;
+  }
+}
+
 /* ---- Features ---- */
 
 .features {
@@ -838,6 +957,7 @@ code {
 .diagrams h2,
 .agents h2,
 .mirroring h2,
+.devloop h2,
 .final-cta h2 {
   font-size: clamp(26px, 3.5vw, 34px);
   font-weight: 700;
@@ -848,7 +968,8 @@ code {
 
 /* Sections with a sub-heading pull the h2 tighter. Must sit after the
    shared rule above, which targets these same selectors. */
-.mirroring h2 {
+.mirroring h2,
+.devloop h2 {
   margin-bottom: 16px;
 }
 
@@ -1074,6 +1195,53 @@ a.agent-chip:hover .agent-name {
   color: var(--text);
   font-weight: 600;
 }
+
+/* Cross-agent session notes, closing out the agents section. */
+.context-share {
+  max-width: 720px;
+  margin: 56px auto 24px;
+  text-align: center;
+}
+
+.context-share h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.context-share p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.context-share-note {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.context-video {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    0 0 64px 8px rgba(139, 92, 246, 0.12);
+}
+
+.context-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--code-bg);
+}
+
 
 @media (max-width: 640px) {
   .sandbox-card {

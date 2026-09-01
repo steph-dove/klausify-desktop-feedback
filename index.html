@@ -10,14 +10,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.klaussy.com/">
   <meta property="og:site_name" content="Klaussy">
-  <meta property="og:image" content="https://www.klaussy.com/og-image.png">
+  <meta property="og:image" content="https://www.klaussy.com/og-klaussy-desktop.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Klaussy running one session across two repos, with an Antigravity CLI agent and a GitHub Copilot agent side by side and a file tree and code editor on the right.">
+  <meta property="og:image:alt" content="The Klaussy Desktop home screen: a sidebar showing token usage across Claude Code, Antigravity CLI, OpenAI Codex, and opencode, beside four action cards for Full Dev Loop, New Git Session, Open Local Folder, and Review PR or MR.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Klaussy Desktop">
   <meta name="twitter:description" content="From first prompt to merged PR across GitHub, GitLab, and Bitbucket, with agents that know your codebase. No server, no markup, use any agent. macOS, Windows, Linux.">
-  <meta name="twitter:image" content="https://www.klaussy.com/og-image.png">
+  <meta name="twitter:image" content="https://www.klaussy.com/og-klaussy-desktop.png">
   <link rel="canonical" href="https://www.klaussy.com/">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
@@ -303,6 +303,20 @@
           </p>
         </div>
       </div>
+
+      <div class="context-share">
+        <h3>And they share what they find</h3>
+        <p>Agents in a session leave each other notes. When one moves a port, changes a schema, or hits something the next one would trip over, it writes that down. The notes are shared by every repo in the session and live outside your repository, so nothing lands in a commit and a teammate on another branch never sees them. Whichever agent picks the work up next gets handed the recent ones as current.</p>
+        <p class="context-share-note">Below: a session started on Antigravity, which writes a note about the colour change it is planning. Claude Opus and Codex open as new tabs in the same session and both read it.</p>
+      </div>
+
+      <div class="context-video">
+        <video autoplay muted loop playsinline controls preload="none" poster="klaussy_session_context_poster.jpg" width="1600" height="1096"
+               aria-label="A Klaussy session running three agents from three vendors. Antigravity CLI starts the work and writes a session note describing the colour change and the hex codes it plans to use. Claude Opus and OpenAI Codex are then opened as tabs in the same session, and the Session notes panel shows them the same note.">
+          <source src="klaussy_session_context.mp4" type="video/mp4">
+          <p>Your browser can't play this video. <a href="klaussy_session_context.mp4">Download the recording</a> instead.</p>
+        </video>
+      </div>
     </div>
   </section>
 
@@ -352,6 +366,38 @@
             <p>Done. <code>AUTH_LEGACY_TOKENS</code> defaults on, cutover path tested. Branch is clean and ready for you to review back in Klaussy.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Dev Loop ("Rest of the Owl") -->
+  <section id="dev-loop" class="devloop">
+    <div class="container">
+      <div class="devloop-head">
+        <p class="eyebrow">Full Dev Loop &middot; &ldquo;Rest of the Owl&rdquo;</p>
+        <h2>Hand it a ticket. Come back to a green PR.</h2>
+        <p class="devloop-sub">Most of Klaussy is hands-on. <strong>Full Dev Loop</strong> is the mode you pick when a task is defined well enough to walk away from: nine phases, start to finish, with a rail that tells you where it is the whole way. The run below took 17 minutes and ended on an open pull request.</p>
+      </div>
+
+      <ol class="devloop-flow">
+        <li><span class="devloop-chip"><span class="devloop-num">01</span>Plan &amp; Discovery</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">02</span>Implementation</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">03</span>Local Review &amp; Humanize</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">04</span>QA &amp; Evidence</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">05</span>Create PR</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">06</span>Re-review Remote PR</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">07</span>Fix CI Failures</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">08</span>Resolve Review Comments</span></li>
+        <li><span class="devloop-chip"><span class="devloop-num">09</span>Notify when Green</span></li>
+        <li class="devloop-flow-stop"><span class="devloop-chip"><span class="devloop-num">&mdash;</span>Merge stays yours</span></li>
+      </ol>
+
+      <div class="devloop-video">
+        <video autoplay muted loop playsinline controls preload="metadata" poster="klaussy_dev_loop_poster.jpg" width="1600" height="1096"
+               aria-label="The Full Dev Loop panel at the end of a run. Phases 1 to 5, Plan, Implementation, Local Review, QA, and Create PR, are marked done; phase 6 is re-reviewing the remote pull request, with PR #16 open on the forge; phases 7 to 9 are still pending.">
+          <source src="klaussy_dev_loop.mp4" type="video/mp4">
+          <p>Your browser can't play this video. <a href="klaussy_dev_loop.mp4">Download the recording</a> instead.</p>
+        </video>
       </div>
     </div>
   </section>
@@ -440,8 +486,8 @@
           <div class="feature-row">
             <div class="feature-icon">▾</div>
             <div class="feature-row-body">
-              <h4>Plan · Debug · Review</h4>
-              <p>A dropdown on every worktree spawns a dedicated agent tab: a guided Plan flow, a Debug pass, or a multi-phase PR review.</p>
+              <h4>Plan · Debug · Review · Full Dev Loop</h4>
+              <p>A dropdown on every worktree spawns a dedicated agent tab: a guided Plan flow, a Debug pass, a multi-phase PR review, or the <a href="#dev-loop">nine-phase Full Dev Loop</a>.</p>
             </div>
           </div>
           <div class="feature-row">
