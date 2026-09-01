@@ -1542,6 +1542,15 @@ a.agent-chip:hover .agent-name {
   letter-spacing: -0.005em;
 }
 
+.doc h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 20px 0 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 .doc p {
   color: var(--text-muted);
   font-size: 14px;

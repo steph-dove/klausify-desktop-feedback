@@ -38,44 +38,87 @@
       <p class="doc-meta">Last updated: August 31, 2026 · Draft pending legal review.</p>
 
       <h2>1. What Klaussy collects</h2>
-      <p>Klaussy is a desktop application. It does not host a backend service of its own. Information you interact with from within Klaussy goes to third parties whose policies govern what they collect:</p>
+      <p>Klaussy is a desktop application. We do not run a backend, and we receive none of your data. Everything below leaves your machine only because you pointed Klaussy at a service and asked it to do something. Each provider's own policy governs what they keep.</p>
       <ul>
-        <li><strong>Your AI coding agent.</strong> When you use the terminal, the Plan / Debug / Review actions, "Explain diff", inline AI edit, or AI commit-message generation, the agent you select reads the prompt and repository context you provide and sends it to that agent's provider — Anthropic (Claude Code), OpenAI (Codex), Google (Gemini), or GitHub (Copilot). See the relevant provider's privacy policy.</li>
-        <li><strong>GitHub.</strong> When you view / comment on / merge PRs or run CI checks through Klaussy, those requests go through your local <code>gh</code> CLI to GitHub. See GitHub's privacy policy.</li>
-        <li><strong>Ollama (optional).</strong> If you enable inline AI completion, Klaussy runs <code>qwen2.5-coder:1.5b</code> locally via Ollama. No data leaves your machine.</li>
+        <li><strong>Your AI coding agent.</strong> The agent you select receives the prompts you write and whatever repository context it reads to answer them. That agent may be Claude Code (Anthropic), Codex (OpenAI), Gemini or Antigravity (Google), Copilot (GitHub), Cursor (Anysphere), Cline, opencode, Kimi Code (Moonshot AI), or Aider. Which provider gets your code depends entirely on which agent you pick, per tab.</li>
+        <li><strong>Your git forge.</strong> Cloning, browsing pull or merge requests, reading CI logs, and posting review comments send requests to GitHub, GitLab, or Bitbucket, through their CLIs or REST APIs using credentials you supply.</li>
+        <li><strong>Discord or Slack, if you turn on session mirroring.</strong> Mirroring streams that session's agent output into a thread, and sends your replies back to the agent. Whatever the agent prints goes with it, which in practice includes file paths, diffs, and source code. This is off unless you enable it per session.</li>
+        <li><strong>MCP servers you enable.</strong> Klaussy ships a catalog covering Asana, Atlassian (Jira and Confluence), Datadog, Figma, GitHub, Grafana, Honeycomb, Linear, Notion, PagerDuty, Sentry, Slack, and Stripe. A remote MCP server receives whatever the agent chooses to send it. None are enabled by default.</li>
+        <li><strong>Nemesis8 sandboxes (optional).</strong> Running a tab in a sandbox uses a local Docker container by default. If you point Klaussy at a remote gateway instead, that tab's work runs on the host you configured.</li>
+        <li><strong>Ollama (optional).</strong> Inline completion and local models run through Ollama on your own machine. No data leaves it.</li>
       </ul>
 
       <h2>2. What Klaussy stores locally</h2>
+      <p>Paths below are macOS; Windows and Linux use the equivalent per-user application data directories.</p>
       <ul>
-        <li>Your project list, terminal sessions, notes, and preferences, in <code>~/Library/Application Support/Klaussy/config.json</code>.</li>
+        <li>Your project list, sessions, preferences, and MCP configuration, under <code>~/Library/Application Support/Klaussy/</code>.</li>
+        <li><strong>Git worktrees</strong> for each session, under <code>~/klaussy/sessions/</code>. These are full checkouts of the repositories you add to a session.</li>
+        <li><strong>Session notes</strong>, under <code>~/.klaussy/sessions/</code>. Agents write these to hand context to each other, so they describe your architecture, schemas, and in-progress work. They sit outside your repositories and are never committed.</li>
         <li>Logs of main-process activity (errors and diagnostics), in <code>~/Library/Logs/Klaussy/main.log</code>. No prompt contents are logged.</li>
+        <li><strong>Credentials you enter</strong>: git forge accounts, Slack and Discord webhook URLs and bot tokens, MCP server credentials, and any sandbox gateway token. These are written to Klaussy's own configuration files on disk. Klaussy does not put them in your operating system's keychain, so treat that directory as sensitive and do not sync it anywhere you would not sync a credentials file.</li>
       </ul>
-      <p>None of this leaves your machine unless you explicitly sync your home directory to iCloud, Dropbox, etc.</p>
+      <p>None of this leaves your machine unless you sync your home directory to iCloud, Dropbox, or similar.</p>
 
-      <h2>3. What Klaussy sends off-device</h2>
+      <h2>3. What Klaussy sends off-device on its own</h2>
+      <p>Two things, and both are about Klaussy itself rather than an agent acting for you:</p>
       <ul>
-        <li><strong>Update check.</strong> Klaussy checks whether a newer version exists so it can update itself. That request reveals your IP address and the version you are running. It carries no personal data, no identifier we assign you, and nothing about your projects.</li>
+        <li><strong>Update check.</strong> Klaussy checks the GitHub releases feed for its own repository to see whether a newer version exists. That request reaches GitHub, not us. It reveals your IP address and the version you are running, and carries no personal data, no identifier we assign you, and nothing about your projects.</li>
+        <li><strong>Session mirroring, when you enable it.</strong> With mirroring on, Klaussy posts that session's agent output to the Discord or Slack destination you configured, and polls it for your replies. This runs only for sessions you switch it on for.</li>
       </ul>
-      <p>That is the only request Klaussy makes on its own behalf. There is no license check, no activation, no account, and no server of ours that receives your data.</p>
-      <p>Everything else that leaves your machine is a request you triggered: the coding agent you selected, or a CLI such as <code>gh</code> that Klaussy runs for you. Those go to that provider, not to us, and are covered in section 1.</p>
+      <p>There is no license check, no activation, no account, and no server of ours that receives your data.</p>
+      <p>Everything else that leaves your machine is a request you triggered: the agent you selected, a forge CLI Klaussy runs for you, or an MCP server you enabled. Those go to that provider, and are covered in section 1.</p>
 
       <h2>4. Telemetry</h2>
       <p>Klaussy does not send usage analytics or telemetry. We do not track which features you use, what projects you open, or how often you launch the app.</p>
 
       <h2>5. Third-party services</h2>
-      <p>Klaussy orchestrates several tools you choose to use. Their policies apply:</p>
+      <p>Klaussy orchestrates tools you choose to use. Which of these ever sees your data depends on which agents, forges, integrations, and MCP servers you turn on. Their policies apply:</p>
+
+      <h3>Coding agents</h3>
       <ul>
-        <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic (Claude Code)</a></li>
-        <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI (Codex)</a></li>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google (Gemini)</a></li>
-        <li><a href="https://docs.github.com/en/site-policy/privacy-policies" target="_blank" rel="noopener">GitHub (incl. Copilot)</a></li>
-        <li>Ollama (local, no data sent off-device)</li>
+        <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic</a> (Claude Code)</li>
+        <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI</a> (Codex)</li>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> (Gemini, Antigravity)</li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies" target="_blank" rel="noopener">GitHub</a> (Copilot)</li>
+        <li><a href="https://cursor.com/privacy" target="_blank" rel="noopener">Anysphere</a> (Cursor)</li>
+        <li><a href="https://cline.bot/privacy" target="_blank" rel="noopener">Cline</a></li>
+        <li><a href="https://opencode.ai" target="_blank" rel="noopener">opencode</a></li>
+        <li><a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener">Moonshot AI</a> (Kimi Code)</li>
+        <li>Aider, which sends to whichever model provider you configure it against</li>
+        <li><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> (local, no data sent off-device)</li>
+      </ul>
+
+      <h3>Git forges</h3>
+      <ul>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://about.gitlab.com/privacy/" target="_blank" rel="noopener">GitLab</a></li>
+        <li><a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener">Atlassian</a> (Bitbucket)</li>
+      </ul>
+
+      <h3>Session mirroring</h3>
+      <ul>
+        <li><a href="https://discord.com/privacy" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://slack.com/trust/privacy/privacy-policy" target="_blank" rel="noopener">Slack</a></li>
+      </ul>
+
+      <h3>MCP servers in the built-in catalog</h3>
+      <p>None are enabled by default. A remote server only receives data once you turn it on and an agent calls it.</p>
+      <ul>
+        <li>Asana, Atlassian (Jira and Confluence), Datadog, Figma, GitHub, Grafana, Honeycomb, Linear, Notion, PagerDuty, Sentry, Slack, and Stripe, each under its own provider's policy.</li>
+        <li>The Filesystem server is local and sends nothing off-device.</li>
+      </ul>
+
+      <h3>Sandboxing</h3>
+      <ul>
+        <li><a href="https://github.com/DeepBlueDynamics/nemesis8" target="_blank" rel="noopener">Nemesis8</a>, local Docker by default, or a remote gateway if you configure one.</li>
       </ul>
 
       <h2>6. Your rights</h2>
       <p>You can at any time:</p>
       <ul>
-        <li>Delete your local data by removing <code>~/Library/Application Support/Klaussy</code> and <code>~/Library/Logs/Klaussy</code>.</li>
+        <li>Delete your local data by removing <code>~/Library/Application Support/Klaussy</code>, <code>~/.klaussy</code>, and <code>~/Library/Logs/Klaussy</code>. Session worktrees under <code>~/klaussy/sessions</code> are ordinary git checkouts; delete them the way you would any other clone.</li>
+        <li>Revoke any credential you gave Klaussy at the provider that issued it — a forge token, a Slack or Discord app, or an MCP server's credentials — and remove it from Klaussy's configuration.</li>
+        <li>Turn off session mirroring for a session to stop output leaving your machine for Discord or Slack.</li>
       </ul>
 
       <h2>7. Contact</h2>
