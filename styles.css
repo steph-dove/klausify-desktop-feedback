@@ -260,36 +260,6 @@ code {
   color: var(--text);
 }
 
-/* ---- Demo Video ---- */
-
-.demo-video-section {
-  padding: 0 0 96px;
-  background: var(--bg);
-}
-
-.video-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(139, 92, 246, 0.08),
-    0 0 64px 8px rgba(139, 92, 246, 0.12);
-  background: var(--bg-elevated);
-}
-
-.video-container picture {
-  display: block;
-}
-
-.demo-video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* ---- Buttons ---- */
 
 .btn {
